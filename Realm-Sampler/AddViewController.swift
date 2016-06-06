@@ -15,9 +15,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIToolbarDelegat
     
     @IBOutlet var dateTextField: UITextField!
     
-    var datePicker: UIDatePicker!
+    @IBOutlet var gestureRecognizer: UITapGestureRecognizer!
     
-    var toolBar: UIToolbar!
+    var datePicker: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +31,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIToolbarDelegat
         
         dateTextField.inputView = datePicker
         
-        toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.size.height/6, self.view.frame.size.width, 40.0))
-        toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
-        toolBar.barStyle = .BlackTranslucent
-        toolBar.tintColor = UIColor.whiteColor()
-        toolBar.backgroundColor = UIColor.blackColor()
-        
-        let toolBarBtn      = UIBarButtonItem(title: "完了", style: .Plain, target: self, action: #selector(self.tappedToolBarBtn(_:)))
-        let toolBarBtnToday = UIBarButtonItem(title: "今日", style: .Plain, target: self, action: #selector(self.tappedToolBarBtnToday(_:)))
-        
-        toolBarBtn.tag = 1
-        toolBar.items = [toolBarBtn, toolBarBtnToday]
-        
-        textField.inputAccessoryView = toolBar
+        gestureRecognizer.addTarget(self, action: #selector(self.didSelectTapGesture))
     
     }
 
@@ -59,19 +47,14 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIToolbarDelegat
         self.create(todo: text, due_date: date)
     }
     
+    func didSelectTapGesture() {
+        print("add target")
+        dateTextField.resignFirstResponder()
+    }
+    
     func changedDueDate() {
-        
-    }
-    
-    // 「完了」を押すと閉じる
-    func tappedToolBarBtn(sender: UIBarButtonItem) {
-        textField.resignFirstResponder()
-    }
-    
-    // 「今日」を押すと今日の日付をセットする
-    func tappedToolBarBtnToday(sender: UIBarButtonItem) {
-        datePicker.date = NSDate()
-        changeLabelDate(NSDate())
+        print("change Due Date")
+        changeLabelDate(datePicker.date)
     }
     
     func changeLabelDate(date: NSDate) {
@@ -99,7 +82,13 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIToolbarDelegat
         todo.save()
     }
     
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
 }
