@@ -107,6 +107,10 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         return categoryArray[row]
     }
     
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("選択されたのは...\(categoryArray[row])")
+    }
+    
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
