@@ -21,10 +21,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="U4u-BY-4vY"/>
+                    <navigationItem key="navigationItem" id="U4u-BY-4vY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="crs-jx-IgQ">
+                            <connections>
+                                <action selector="didSelectAdd" destination="BYZ-38-t0r" id="ZWB-9k-5H5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="todoTable" destination="O3d-2L-4I3" id="DjM-zJ-E3f"/>
-                        <segue destination="cKX-WD-IEr" kind="push" id="4cb-B1-zXY"/>
+                        <segue destination="cKX-WD-IEr" kind="push" identifier="toAdd" id="4cb-B1-zXY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -45,13 +51,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="qtV-00-2sh">
-                                <rect key="frame" x="0.0" y="236" width="320" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="486922229.37642401">
-                                    <!--2016-06-06 16:10:29 +0000-->
-                                </date>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iRa-6l-eM8">
                                 <rect key="frame" x="143" y="491" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,12 +59,18 @@
                                     <action selector="didSelectSave" destination="cKX-WD-IEr" eventType="touchUpInside" id="QBE-b0-JZg"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="5gR-k7-RdK">
+                                <rect key="frame" x="20" y="202" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="WBz-82-7sh"/>
                     <connections>
-                        <outlet property="datePicker" destination="qtV-00-2sh" id="zlS-fs-cNL"/>
+                        <outlet property="dateTextField" destination="5gR-k7-RdK" id="kUp-2b-Ium"/>
                         <outlet property="textField" destination="wQX-9I-Nii" id="Z5c-dj-IBa"/>
                     </connections>
                 </viewController>
