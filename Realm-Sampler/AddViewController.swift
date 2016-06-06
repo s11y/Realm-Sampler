@@ -9,12 +9,14 @@
 import UIKit
 import RealmSwift
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController, UITextFieldDelegate {
     
-    
+    @IBOutlet var textField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -22,6 +24,14 @@ class AddViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func didSelectSave() {
+        self.create(todo: textField.text!)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        return true
     }
     
     func create(todo content: String) {

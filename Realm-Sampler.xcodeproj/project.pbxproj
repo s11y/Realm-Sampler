@@ -157,14 +157,13 @@
 			children = (
 				3988878B1D05C2C400E91C06 /* StoryboardHelper */,
 				3988875D1D05B8A300E91C06 /* AppDelegate.swift */,
-				3988875F1D05B8A300E91C06 /* ViewController.swift */,
+				39E618E41D05D6D4009ECBC3 /* Controllers */,
 				398887611D05B8A300E91C06 /* Main.storyboard */,
 				398887641D05B8A300E91C06 /* Assets.xcassets */,
 				398887661D05B8A300E91C06 /* LaunchScreen.storyboard */,
 				398887691D05B8A300E91C06 /* Info.plist */,
 				3988879D1D05C44000E91C06 /* TodoCell */,
 				3988879E1D05C4B400E91C06 /* ToDoModel.swift */,
-				39E618E21D05D398009ECBC3 /* AddViewController.swift */,
 			);
 			path = "Realm-Sampler";
 			sourceTree = "<group>";
@@ -214,6 +213,15 @@
 				3988879A1D05C43A00E91C06 /* TodoCell.xib */,
 			);
 			name = TodoCell;
+			sourceTree = "<group>";
+		};
+		39E618E41D05D6D4009ECBC3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3988875F1D05B8A300E91C06 /* ViewController.swift */,
+				39E618E21D05D398009ECBC3 /* AddViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
