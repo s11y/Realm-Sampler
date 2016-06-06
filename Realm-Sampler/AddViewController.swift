@@ -9,19 +9,26 @@
 import UIKit
 import RealmSwift
 
-class AddViewController: UIViewController, UITextFieldDelegate, UIToolbarDelegate {
+class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var textField: UITextField!
     
     @IBOutlet var dateTextField: UITextField!
     
+    @IBOutlet var categoryTextField: UITextField!
+    
     @IBOutlet var gestureRecognizer: UITapGestureRecognizer!
     
     var datePicker: UIDatePicker!
+    
+    var categoryPicer: UIPickerView!
+    
+    let categoryArray: [String] = ["勉強", "家事", "プログラミング"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        categoryTextField.delegate = self
         dateTextField.delegate = self
         textField.delegate = self
         
@@ -32,6 +39,12 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIToolbarDelegat
         dateTextField.inputView = datePicker
         
         gestureRecognizer.addTarget(self, action: #selector(self.didSelectTapGesture))
+        
+        categoryPicer = UIPickerView()
+        categoryPicer.delegate = self
+        categoryPicer.dataSource = self
+        
+        categoryTextField.inputView = categoryPicer
     
     }
 
@@ -80,6 +93,18 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIToolbarDelegat
         todo.todo = content
         todo.due_date = date
         todo.save()
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categoryArray.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryArray[row]
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {

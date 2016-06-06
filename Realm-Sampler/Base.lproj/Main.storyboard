@@ -76,17 +76,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kaz-Pw-GFO">
+                                <rect key="frame" x="24" y="276" width="552" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Wgw-sP-fau" firstAttribute="top" secondItem="iRa-6l-eM8" secondAttribute="bottom" constant="47" id="87D-DN-OFx"/>
                             <constraint firstItem="wQX-9I-Nii" firstAttribute="leading" secondItem="BON-mB-n2n" secondAttribute="leadingMargin" constant="4" id="C1g-Ud-TbU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kaz-Pw-GFO" secondAttribute="trailing" constant="4" id="DER-Yp-kuQ"/>
+                            <constraint firstItem="kaz-Pw-GFO" firstAttribute="top" secondItem="5gR-k7-RdK" secondAttribute="bottom" constant="44" id="HbP-lq-abJ"/>
                             <constraint firstItem="wQX-9I-Nii" firstAttribute="trailing" secondItem="5gR-k7-RdK" secondAttribute="trailing" id="I7h-4X-DCM"/>
+                            <constraint firstItem="kaz-Pw-GFO" firstAttribute="leading" secondItem="BON-mB-n2n" secondAttribute="leadingMargin" constant="4" id="Lpf-Mh-Ngz"/>
                             <constraint firstItem="wQX-9I-Nii" firstAttribute="leading" secondItem="5gR-k7-RdK" secondAttribute="leading" id="MQG-XN-mEz"/>
                             <constraint firstItem="5gR-k7-RdK" firstAttribute="centerX" secondItem="iRa-6l-eM8" secondAttribute="centerX" id="N4o-cu-66w"/>
                             <constraint firstItem="5gR-k7-RdK" firstAttribute="top" secondItem="wQX-9I-Nii" secondAttribute="bottom" constant="44" id="OxU-xg-5UX"/>
                             <constraint firstItem="wQX-9I-Nii" firstAttribute="centerX" secondItem="BON-mB-n2n" secondAttribute="centerX" id="T6e-yc-V54"/>
+                            <constraint firstItem="kaz-Pw-GFO" firstAttribute="centerX" secondItem="BON-mB-n2n" secondAttribute="centerX" id="iWA-ez-jbh"/>
                             <constraint firstItem="wQX-9I-Nii" firstAttribute="top" secondItem="NPX-bi-wWN" secondAttribute="bottom" constant="64" id="paQ-Je-M92"/>
                         </constraints>
                         <connections>
@@ -95,6 +104,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="WBz-82-7sh"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="kaz-Pw-GFO" id="X7F-ex-CIP"/>
                         <outlet property="dateTextField" destination="5gR-k7-RdK" id="kUp-2b-Ium"/>
                         <outlet property="gestureRecognizer" destination="eK1-rd-0uc" id="O2T-b0-CzT"/>
                         <outlet property="textField" destination="wQX-9I-Nii" id="Z5c-dj-IBa"/>
@@ -103,7 +113,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zB7-e5-vFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="eK1-rd-0uc"/>
             </objects>
-            <point key="canvasLocation" x="2017.5" y="428.87323943661971"/>
+            <point key="canvasLocation" x="2017" y="428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Ti-RX-EnV">
