@@ -12,6 +12,8 @@ import RealmSwift
 class AddViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var textField: UITextField!
+    
+    @IBOutlet var datePicker: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,7 @@ class AddViewController: UIViewController, UITextFieldDelegate {
     func create(todo content: String) {
         let todo = ToDoModel.create()
         todo.todo = content
+        todo.due_date = datePicker.date
         todo.save()
     }
 }
