@@ -9,6 +9,10 @@
 import UIKit
 
 class TodoCell: UITableViewCell {
+    
+    @IBOutlet var todoLabel: UILabel!
+    
+    @IBOutlet var duedateLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

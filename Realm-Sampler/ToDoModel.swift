@@ -17,6 +17,7 @@ class ToDoModel: Object {
     dynamic var todo: String = ""
     dynamic var category: Int = 0
     dynamic var due_date: NSDate!
+    dynamic var isDone: Int = 0
     
     override static func primaryKey() -> String {
         return "id"
@@ -24,6 +25,7 @@ class ToDoModel: Object {
     
     static func create() -> ToDoModel {
         let todo = ToDoModel()
+        todo.id = lastId()
         return todo
     }
     
