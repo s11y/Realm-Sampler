@@ -85,18 +85,8 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func changeLabelDate(date: NSDate) {
-        dateTextField.text = dateToString(date)
+        dateTextField.text = date.convertDate()
     }
-    
-    func dateToString(date:NSDate) ->String {
-        let date_formatter: NSDateFormatter = NSDateFormatter()
-        
-        date_formatter.locale     = NSLocale(localeIdentifier: "ja")
-        date_formatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-        
-        return date_formatter.stringFromDate(date)
-    }
-    
     
     func create(todo content: String, due_date date: NSDate, category_id category: Int) {
         let todo = ToDoModel.create()
