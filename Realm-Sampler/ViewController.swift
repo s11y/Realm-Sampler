@@ -81,6 +81,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         let done = UITableViewRowAction(style: .Normal, title: "DONE") { (action, indexPath) in
+//            ToDoModel().updateDone(idOfUpdate: indexPath.row)
             let item = self.realm.objects(ToDoModel)[indexPath.row]
             try! self.realm.write({ 
                 item.isDone = 1
@@ -89,15 +90,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         return [delete, done]
     }
-    
-//    func done(indexPath id: Int) {
-//        let realm = try! Realm()
-//        let item = realm.objects(ToDoModel)[id]
-//        try! realm.write {
-//            item.isDone = 1
-//        }
-//    }
-    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
