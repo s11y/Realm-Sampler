@@ -52,10 +52,18 @@ class ToDoModel: Object {
         }
     }
     
+    // MARK: UITableViewRowActionからインスタンスを送れない
     func delete(idOfDelete id: Int)  {
         let item = realm?.objects(ToDoModel)[id]
         try! realm?.write {
             realm?.delete(item!)
+        }
+    }
+    
+    func updateDone(idOfUpdate id: Int) {
+        let item = realm?.objects(ToDoModel)[id]
+        try! realm?.write {
+            item?.isDone = 1
         }
     }
 }

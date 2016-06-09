@@ -26,6 +26,10 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     let categoryArray: [String] = ["勉強", "家事", "プログラミング"]
     
     var category = 0
+    
+    var isCreate = true
+    
+    var updatingTodo: ToDoModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,10 +93,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         let comps: NSDateComponents = calender.components([NSCalendarUnit.Year ,NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Weekday], fromDate: date)
         
         let date_formatter: NSDateFormatter = NSDateFormatter()
-        var weekdays: [AnyObject]  = [ "日", "月", "火", "水", "木", "金", "土"]
         
         date_formatter.locale     = NSLocale(localeIdentifier: "ja")
-        date_formatter.dateFormat = "yyyy年MM月dd日（\(weekdays[comps.weekday])） "
+        date_formatter.dateFormat = "yyyy年MM月dd日"
         
         return date_formatter.stringFromDate(date)
     }

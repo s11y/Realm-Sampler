@@ -11,9 +11,13 @@ import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let realm = try! Realm()
+    
     @IBOutlet var todoTable: UITableView!
     
     var todos = [ToDoModel]()
+    
+    var todo: ToDoModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +39,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.estimatedRowHeight = 90
         todoTable.rowHeight = UITableViewAutomaticDimension
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,9 +49,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func read() {
         todos = ToDoModel.loadAll()
-        
-        print(todos)
         todoTable.reloadData()
+    }
+    
+    func didSelectDONE() {
+        self.performSegueWithIdentifier("toAdd", sender: self)
     }
     
     @IBAction func didSelectAdd() {
@@ -53,13 +61,43 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            todos.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            ToDoModel.delete(indexPath.row)
-            
-        }
     }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { (action, indexPath) in
+            tableView.editing = false
+//            ToDoModel().delete(idOfDelete :indexPath.row)
+            let item = self.realm.objects(ToDoModel)[indexPath.row]
+            try! self.realm.write {
+                self.realm.delete(item
+                
+                )
+            }
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+        
+        let done = UITableViewRowAction(style: .Normal, title: "DONE") { (action, indexPath) in
+            let item = self.realm.objects(ToDoModel)[indexPath.row]
+            try! self.realm.write({ 
+                item.isDone = 1
+            })
+        }
+        
+        return [delete, done]
+    }
+    
+//    func done(indexPath id: Int) {
+//        let realm = try! Realm()
+//        let item = realm.objects(ToDoModel)[id]
+//        try! realm.write {
+//            item.isDone = 1
+//        }
+//    }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
@@ -73,6 +111,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.todoLabel.text = item.todo
         
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toAdd" {
+            guard let updatingTodo = self.todo else { return }
+            let addView = segue.destinationViewController as! AddViewController
+            addView.updatingTodo = updatingTodo
+        }
     }
     
     func getDate(due_date date: NSDate) -> String {
