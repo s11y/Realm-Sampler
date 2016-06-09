@@ -64,7 +64,10 @@ class ToDoModel: Object {
     }
     
     static func lastId() -> Int {
-        if let todo = realm.objects(ToDoModel).last {
+        // isDoneの値を変更するとデータベース上の順序が変わるために、変更
+        // 具体的には、一番上にくるため
+//        if let todo = realm.objects(ToDoModel).last {
+        if let todo = realm.objects(ToDoModel).sorted("id", ascending: false).first {
             return todo.id + 1
         }else {
             return 1
