@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var todoTable: UITableView!
     
+    @IBOutlet var segment: UISegmentedControl!
+    
     var todos = [ToDoModel]()
     
     var todo: ToDoModel!
@@ -27,6 +29,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.dataSource = self
         
         todoTable.registerNib(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
+        
+        segment.addTarget(self, action: #selector(self.changeSegment), forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,9 +47,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    func readAll() {
+        todos = ToDoModel.loadAll()
+        todoTable.reloadData()
+    }
+    
     func read() {
         todos = ToDoModel.loadUndone()
         todoTable.reloadData()
+    }
+    
+    func changeSegment() {
+        
     }
     
     func didSelectDONE() {

@@ -9,6 +9,11 @@
 import UIKit
 import RealmSwift
 
+public enum FetchType {
+    case All
+    case UnDone
+}
+
 class ToDoModel: Object {
     
     static let realm = try! Realm()
@@ -27,6 +32,17 @@ class ToDoModel: Object {
         let todo = ToDoModel()
         todo.id = lastId()
         return todo
+    }
+    
+    static func fetch(FetchType type: FetchType) -> [ToDoModel] {
+        switch type {
+        case .All:
+            return loadAll()
+        case .UnDone:
+            return loadUndone()
+        default:
+            break
+        }
     }
     
     static func loadAll() -> [ToDoModel] {
