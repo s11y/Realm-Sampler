@@ -54,7 +54,8 @@ class ToDoModel: Object {
     
     func delete(idOfDelete id: Int)  {
         let item = realm?.objects(ToDoModel)[id]
-//        print(item) 
-//        realm.delete(.)
+        try! realm?.write {
+            realm?.delete(item!)
+        }
     }
 }

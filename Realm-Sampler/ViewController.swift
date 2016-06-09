@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if editingStyle == .Delete {
             todos.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            delete(indexPath.row)
+            ToDoModel.delete(indexPath.row)
             
         }
     }
@@ -80,14 +80,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         formatter.locale = NSLocale(localeIdentifier: "ja_JP")
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return formatter.stringFromDate(date)
-    }
-    
-    private func delete(id: Int) {
-        let realm = try! Realm()
-        let item = realm.objects(ToDoModel)[id]
-        try! realm.write {
-            realm.delete(item)
-        }
     }
 }
 
