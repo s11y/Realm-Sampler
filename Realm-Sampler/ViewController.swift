@@ -88,6 +88,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
         
+        delete.backgroundColor = UIColor.redColor()
+        
         let done = UITableViewRowAction(style: .Normal, title: "DONE") { (action, indexPath) in
 //            ToDoModel().updateDone(idOfUpdate: indexPath.row)
             let item = self.realm.objects(ToDoModel)[indexPath.row]
@@ -95,6 +97,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 item.isDone = 1
             })
         }
+        
+        done.backgroundColor = UIColor.greenColor()
         
         return [delete, done]
     }
