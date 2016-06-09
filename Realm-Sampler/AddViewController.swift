@@ -74,13 +74,11 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func didSelectTapGesture() {
-        print("add target")
         dateTextField.resignFirstResponder()
         categoryTextField.resignFirstResponder()
     }
     
     func changedDueDate() {
-        print("change Due Date")
         changeLabelDate(datePicker.date)
     }
     
@@ -115,7 +113,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("選択されたのは...\(categoryArray[row])")
         self.convertCategory(selectedRow: row)
         self.category = row
     }
