@@ -48,6 +48,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="segment" destination="HAR-SA-Xm7" id="fPK-6N-xDW"/>
                         <outlet property="todoTable" destination="O3d-2L-4I3" id="DjM-zJ-E3f"/>
                         <segue destination="cKX-WD-IEr" kind="show" identifier="toAdd" id="4cb-B1-zXY"/>
                     </connections>

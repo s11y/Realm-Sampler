@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         todoTable.registerNib(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
         
-        segment.addTarget(self, action: #selector(self.changeSegment), forControlEvents: .TouchUpInside)
+        segment.addTarget(self, action: #selector(self.changeSegment(_:)), forControlEvents: .TouchUpInside)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,22 +47,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
-    func readAll() {
-        todos = ToDoModel.loadAll()
-        todoTable.reloadData()
-    }
-    
     func read() {
         todos = ToDoModel.loadUndone()
+        segment.selectedSegmentIndex = 0
         todoTable.reloadData()
     }
     
-    func changeSegment() {
-        
-    }
-    
-    func didSelectDONE() {
-        self.performSegueWithIdentifier("toAdd", sender: self)
+    func changeSegment(segment: UISegmentedControl) {
+        switch segment.selectedSegmentIndex {
+        case 0:
+            todos = ToDoModel.fetch(FetchType: .UnDone)
+        case 1:
+            todos = ToDoModel.fetch(FetchType: .All)
+        default:
+            break
+        }
+        todoTable.reloadData()
     }
     
     @IBAction func didSelectAdd() {
