@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ABB1A11B9DA2EF9FF183C85 /* Pods_Realm_SamplerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7EDF3208D3D3E1AC855E4D /* Pods_Realm_SamplerTests.framework */; };
+		3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */; };
 		3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988875D1D05B8A300E91C06 /* AppDelegate.swift */; };
 		398887601D05B8A300E91C06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988875F1D05B8A300E91C06 /* ViewController.swift */; };
 		398887631D05B8A300E91C06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398887611D05B8A300E91C06 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		3988875A1D05B8A200E91C06 /* Realm-Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm-Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3988875D1D05B8A300E91C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3988875F1D05B8A300E91C06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3922DFBC1D0A08610009BBBA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3988879E1D05C4B400E91C06 /* ToDoModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3922DFBD1D0A08670009BBBA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		398887511D05B8A200E91C06 = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +170,8 @@
 				398887661D05B8A300E91C06 /* LaunchScreen.storyboard */,
 				398887691D05B8A300E91C06 /* Info.plist */,
 				3988879D1D05C44000E91C06 /* TodoCell */,
-				3988879E1D05C4B400E91C06 /* ToDoModel.swift */,
+				3922DFBC1D0A08610009BBBA /* Model */,
+				3922DFBD1D0A08670009BBBA /* Extension */,
 			);
 			path = "Realm-Sampler";
 			sourceTree = "<group>";
@@ -456,6 +475,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */,
 				398887601D05B8A300E91C06 /* ViewController.swift in Sources */,
 				39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */,
 				3988879B1D05C43A00E91C06 /* TodoCell.swift in Sources */,
