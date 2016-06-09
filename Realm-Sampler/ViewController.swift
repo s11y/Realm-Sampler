@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var todoTable: UITableView!
     
     var todos = [ToDoModel]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,8 +24,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.registerNib(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
     }
     
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.read()
         
         todoTable.estimatedRowHeight = 90
         todoTable.rowHeight = UITableViewAutomaticDimension
@@ -37,7 +41,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func read() {
+        todos = ToDoModel.loadAll()
         
+        print(todos)
+        todoTable.reloadData()
     }
     
     @IBAction func didSelectAdd() {
@@ -45,13 +52,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return todos.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = todoTable.dequeueReusableCellWithIdentifier("todoCell") as! TodoCell
         
+        let item = todos[indexPath.row]
+        cell.duedateLabel.text = self.getDate(due_date: item.due_date)
+        cell.todoLabel.text = item.todo
+        
         return cell
+    }
+    
+    func getDate(due_date date: NSDate) -> String {
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        return formatter.stringFromDate(date)
     }
 }
 
