@@ -29,8 +29,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.registerNib(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
     }
     
-    
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -40,15 +38,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.rowHeight = UITableViewAutomaticDimension
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func read() {
-        todos = ToDoModel.loadAll()
+        todos = ToDoModel.loadUndone()
         todoTable.reloadData()
     }
     
@@ -74,7 +70,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let item = self.realm.objects(ToDoModel)[indexPath.row]
             try! self.realm.write {
                 self.realm.delete(item
-                
                 )
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)

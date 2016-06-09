@@ -38,6 +38,15 @@ class ToDoModel: Object {
         return ret
     }
     
+    static func loadUndone() -> [ToDoModel] {
+        let todos = realm.objects(ToDoModel).filter("isDone = 0")
+        var ret: [ToDoModel] = []
+        for todo in todos {
+            ret.append(todo)
+        }
+        return ret
+    }
+    
     static func lastId() -> Int {
         if let todo = realm.objects(ToDoModel).last {
             return todo.id + 1

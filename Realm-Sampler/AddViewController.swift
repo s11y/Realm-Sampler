@@ -95,7 +95,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         let date_formatter: NSDateFormatter = NSDateFormatter()
         
         date_formatter.locale     = NSLocale(localeIdentifier: "ja")
-        date_formatter.dateFormat = "yyyy年MM月dd日"
+        date_formatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
         
         return date_formatter.stringFromDate(date)
     }
