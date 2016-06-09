@@ -40,7 +40,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         
         datePicker = UIDatePicker()
         datePicker.addTarget(self, action: #selector(self.changedDueDate), forControlEvents: .ValueChanged)
-        datePicker.datePickerMode = UIDatePickerMode.Date
+        datePicker.datePickerMode = UIDatePickerMode.DateAndTime
         
         dateTextField.inputView = datePicker
         

@@ -15,10 +15,6 @@
 		398887681D05B8A300E91C06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398887661D05B8A300E91C06 /* LaunchScreen.storyboard */; };
 		398887731D05B8A300E91C06 /* Realm_SamplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398887721D05B8A300E91C06 /* Realm_SamplerTests.swift */; };
 		3988877E1D05B8A300E91C06 /* Realm_SamplerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988877D1D05B8A300E91C06 /* Realm_SamplerUITests.swift */; };
-		398887941D05C2C400E91C06 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3988878E1D05C2C400E91C06 /* Default-568h@2x.png */; };
-		398887951D05C2C400E91C06 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3988878F1D05C2C400E91C06 /* Default-667h@2x.png */; };
-		398887961D05C2C400E91C06 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 398887901D05C2C400E91C06 /* Default-736h@3x.png */; };
-		398887981D05C2C400E91C06 /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398887921D05C2C400E91C06 /* StoryboardHelper.swift */; };
 		3988879B1D05C43A00E91C06 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398887991D05C43A00E91C06 /* TodoCell.swift */; };
 		3988879C1D05C43A00E91C06 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3988879A1D05C43A00E91C06 /* TodoCell.xib */; };
 		3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988879E1D05C4B400E91C06 /* ToDoModel.swift */; };
@@ -58,10 +54,6 @@
 		398887791D05B8A300E91C06 /* Realm-SamplerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Realm-SamplerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3988877D1D05B8A300E91C06 /* Realm_SamplerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm_SamplerUITests.swift; sourceTree = "<group>"; };
 		3988877F1D05B8A300E91C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3988878E1D05C2C400E91C06 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		3988878F1D05C2C400E91C06 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
-		398887901D05C2C400E91C06 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
-		398887921D05C2C400E91C06 /* StoryboardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
 		398887991D05C43A00E91C06 /* TodoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		3988879A1D05C43A00E91C06 /* TodoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		3988879E1D05C4B400E91C06 /* ToDoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
@@ -153,7 +145,6 @@
 		3988875C1D05B8A300E91C06 /* Realm-Sampler */ = {
 			isa = PBXGroup;
 			children = (
-				3988878B1D05C2C400E91C06 /* StoryboardHelper */,
 				3988875D1D05B8A300E91C06 /* AppDelegate.swift */,
 				39E618E41D05D6D4009ECBC3 /* Controllers */,
 				398887611D05B8A300E91C06 /* Main.storyboard */,
@@ -182,25 +173,6 @@
 				3988877F1D05B8A300E91C06 /* Info.plist */,
 			);
 			path = "Realm-SamplerUITests";
-			sourceTree = "<group>";
-		};
-		3988878B1D05C2C400E91C06 /* StoryboardHelper */ = {
-			isa = PBXGroup;
-			children = (
-				3988878D1D05C2C400E91C06 /* Defaults */,
-				398887921D05C2C400E91C06 /* StoryboardHelper.swift */,
-			);
-			path = StoryboardHelper;
-			sourceTree = "<group>";
-		};
-		3988878D1D05C2C400E91C06 /* Defaults */ = {
-			isa = PBXGroup;
-			children = (
-				3988878E1D05C2C400E91C06 /* Default-568h@2x.png */,
-				3988878F1D05C2C400E91C06 /* Default-667h@2x.png */,
-				398887901D05C2C400E91C06 /* Default-736h@3x.png */,
-			);
-			path = Defaults;
 			sourceTree = "<group>";
 		};
 		3988879D1D05C44000E91C06 /* TodoCell */ = {
@@ -333,13 +305,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				398887951D05C2C400E91C06 /* Default-667h@2x.png in Resources */,
 				398887681D05B8A300E91C06 /* LaunchScreen.storyboard in Resources */,
 				3988879C1D05C43A00E91C06 /* TodoCell.xib in Resources */,
 				398887651D05B8A300E91C06 /* Assets.xcassets in Resources */,
-				398887941D05C2C400E91C06 /* Default-568h@2x.png in Resources */,
 				398887631D05B8A300E91C06 /* Main.storyboard in Resources */,
-				398887961D05C2C400E91C06 /* Default-736h@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,7 +458,6 @@
 			files = (
 				398887601D05B8A300E91C06 /* ViewController.swift in Sources */,
 				39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */,
-				398887981D05C2C400E91C06 /* StoryboardHelper.swift in Sources */,
 				3988879B1D05C43A00E91C06 /* TodoCell.swift in Sources */,
 				3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */,
 				3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */,
