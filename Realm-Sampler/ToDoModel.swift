@@ -30,7 +30,7 @@ class ToDoModel: Object {
     }
     
     static func loadAll() -> [ToDoModel] {
-        let todos = realm.objects(ToDoModel).sorted("id", ascending: false)
+        let todos = realm.objects(ToDoModel).sorted("id", ascending: true)
         var ret: [ToDoModel] = []
         for todo in todos {
             ret.append(todo)
@@ -50,5 +50,11 @@ class ToDoModel: Object {
         try! ToDoModel.realm.write {
             ToDoModel.realm.add(self)
         }
+    }
+    
+    func delete(idOfDelete id: Int)  {
+        let item = realm?.objects(ToDoModel)[id]
+//        print(item) 
+//        realm.delete(.)
     }
 }

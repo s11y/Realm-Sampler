@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -51,6 +52,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.performSegueWithIdentifier("toAdd", sender: self)
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            todos.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            delete(indexPath.row)
+            
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
@@ -70,6 +80,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         formatter.locale = NSLocale(localeIdentifier: "ja_JP")
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         return formatter.stringFromDate(date)
+    }
+    
+    private func delete(id: Int) {
+        let realm = try! Realm()
+        let item = realm.objects(ToDoModel)[id]
+        try! realm.write {
+            realm.delete(item)
+        }
     }
 }
 
