@@ -89,9 +89,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func dateToString(date:NSDate) ->String {
-        let calender: NSCalendar = NSCalendar(calendarIdentifier: NSGregorianCalendar)!
-        let comps: NSDateComponents = calender.components([NSCalendarUnit.Year ,NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second, NSCalendarUnit.Weekday], fromDate: date)
-        
         let date_formatter: NSDateFormatter = NSDateFormatter()
         
         date_formatter.locale     = NSLocale(localeIdentifier: "ja")

@@ -111,7 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = todoTable.dequeueReusableCellWithIdentifier("todoCell") as! TodoCell
         
         let item = todos[indexPath.row]
-        cell.duedateLabel.text = self.getDate(due_date: item.due_date)
+        cell.duedateLabel.text = item.due_date.convertString()
         cell.todoLabel.text = item.todo
         
         return cell
@@ -123,13 +123,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let addView = segue.destinationViewController as! AddViewController
             addView.updatingTodo = updatingTodo
         }
-    }
-    
-    func getDate(due_date date: NSDate) -> String {
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "ja_JP")
-        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        return formatter.stringFromDate(date)
     }
 }
 

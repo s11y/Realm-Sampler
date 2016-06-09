@@ -6,4 +6,13 @@
 //  Copyright © 2016年 ShinokiRyosei. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension NSDate {
+    func convertString() -> String {
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        return formatter.stringFromDate(self)
+    }
+}
