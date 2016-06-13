@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0ABB1A11B9DA2EF9FF183C85 /* Pods_Realm_SamplerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7EDF3208D3D3E1AC855E4D /* Pods_Realm_SamplerTests.framework */; };
 		3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */; };
+		394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBC1D0F087700752948 /* AddViewExtension.swift */; };
 		3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988875D1D05B8A300E91C06 /* AppDelegate.swift */; };
 		398887601D05B8A300E91C06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988875F1D05B8A300E91C06 /* ViewController.swift */; };
 		398887631D05B8A300E91C06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398887611D05B8A300E91C06 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		394F3DBC1D0F087700752948 /* AddViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewExtension.swift; sourceTree = "<group>"; };
 		3988875A1D05B8A200E91C06 /* Realm-Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm-Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3988875D1D05B8A300E91C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3988875F1D05B8A300E91C06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */,
+				394F3DBC1D0F087700752948 /* AddViewExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */,
+				394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */,
 				398887601D05B8A300E91C06 /* ViewController.swift in Sources */,
 				39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */,
 				3988879B1D05C43A00E91C06 /* TodoCell.swift in Sources */,
