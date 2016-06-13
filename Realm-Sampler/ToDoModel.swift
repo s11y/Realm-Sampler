@@ -20,7 +20,7 @@ class ToDoModel: Object {
     
     dynamic private var id: Int = 0
     dynamic var todo: String = ""
-    dynamic var category: Int = 0
+    dynamic var category: CategoryModel?
     dynamic var due_date: NSDate!
     dynamic var isDone: Int = 0
     
@@ -28,7 +28,7 @@ class ToDoModel: Object {
         return "id"
     }
     
-    static func create(content: String, category: Int, dueDate: NSDate) -> ToDoModel {
+    static func create(content: String, category: CategoryModel, dueDate: NSDate) -> ToDoModel {
         let todo = ToDoModel()
         todo.todo = content
         todo.category = category
@@ -38,7 +38,7 @@ class ToDoModel: Object {
         return todo
     }
     
-    static func update(model: ToDoModel,content: String, category: Int, dueDate: NSDate) {
+    static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: NSDate) {
         model.todo = content
         model.category = category
         model.due_date = dueDate
