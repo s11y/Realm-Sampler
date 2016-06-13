@@ -66,7 +66,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func didSelectAdd() {
-        self.performSegueWithIdentifier("toAdd", sender: self)
+        self.transition()
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -102,7 +102,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { (action, indexpath) in
             self.todo = self.todos[indexPath.row]
-            self.performSegueWithIdentifier("toAdd", sender: self)
+            self.transition()
         }
         
         return [delete, done, edit]
@@ -131,7 +131,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func transition() {
-        
+        self.performSegueWithIdentifier("toAdd", sender: self)
     }
 }
 
