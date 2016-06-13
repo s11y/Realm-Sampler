@@ -43,6 +43,7 @@ class ToDoModel: Object {
         todo.todo = content
         todo.category = category
         todo.due_date = dueDate
+        todo.isDone = 0
         return todo
     }
     
