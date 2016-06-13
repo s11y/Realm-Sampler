@@ -16,6 +16,8 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categoryTable.registerNib(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
 
         categoryTable.delegate = self
         categoryTable.dataSource = self
