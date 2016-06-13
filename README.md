@@ -19,6 +19,12 @@
 # CRUD
 
 ## モデルの設計
+ToDoModelのカラムは以下のとおり
+- id プライマリーキー(Int)
+- todo todoの内容(String)
+- category todoのカテゴリー(Int)
+- due date 期限(NSDate)
+- isDone 完了済みかどうか(0ならまだ、1なら完了済)
 
 ## Create データの作成
 
