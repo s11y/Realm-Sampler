@@ -45,19 +45,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dateTextField.delegate = self
         textField.delegate = self
         
-        datePicker = UIDatePicker()
-        datePicker.addTarget(self, action: #selector(self.changedDueDate), forControlEvents: .ValueChanged)
-        datePicker.datePickerMode = UIDatePickerMode.DateAndTime
-        
-        dateTextField.inputView = datePicker
-        
-        gestureRecognizer.addTarget(self, action: #selector(self.didSelectTapGesture))
-        
-        categoryPicer = UIPickerView()
-        categoryPicer.delegate = self
-        categoryPicer.dataSource = self
-        
-        categoryTextField.inputView = categoryPicer
+        self.setDatePicker()
+        self.setGestureSeletor()
+        self.setCategoryPicker()
     }
     
     override func viewWillAppear(animated: Bool) {
