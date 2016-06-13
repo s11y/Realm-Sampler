@@ -11,6 +11,7 @@
 		3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */; };
 		394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBC1D0F087700752948 /* AddViewExtension.swift */; };
 		394F3DBF1D0F0BE800752948 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */; };
+		394F3DC11D0F101600752948 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DC01D0F101600752948 /* CategoryModel.swift */; };
 		3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988875D1D05B8A300E91C06 /* AppDelegate.swift */; };
 		398887601D05B8A300E91C06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988875F1D05B8A300E91C06 /* ViewController.swift */; };
 		398887631D05B8A300E91C06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398887611D05B8A300E91C06 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
 		394F3DBC1D0F087700752948 /* AddViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewExtension.swift; sourceTree = "<group>"; };
 		394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		394F3DC01D0F101600752948 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		3988875A1D05B8A200E91C06 /* Realm-Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm-Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3988875D1D05B8A300E91C06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3988875F1D05B8A300E91C06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				3988879E1D05C4B400E91C06 /* ToDoModel.swift */,
+				394F3DC01D0F101600752948 /* CategoryModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				394F3DBF1D0F0BE800752948 /* ViewControllerExtension.swift in Sources */,
 				3988879B1D05C43A00E91C06 /* TodoCell.swift in Sources */,
 				3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */,
+				394F3DC11D0F101600752948 /* CategoryModel.swift in Sources */,
 				3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
