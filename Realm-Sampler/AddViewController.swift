@@ -105,11 +105,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func create(todo content: String, due_date date: NSDate, category_id category: Int) {
-        let todo = ToDoModel.create()
-        todo.todo = content
-        todo.due_date = date
-        todo.category = category
-        todo.isDone = 0
+        let todo = ToDoModel.create(content, category: category, dueDate: date)
         todo.save()
     }
     
