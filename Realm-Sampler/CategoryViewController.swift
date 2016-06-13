@@ -11,6 +11,8 @@ import UIKit
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var categoryTable: UITableView!
+    
+    var categories: [CategoryModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +20,20 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         categoryTable.delegate = self
         categoryTable.dataSource = self
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.read()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func read() {
+        categories = CategoryModel.loadAll()
+        categoryTable.reloadData()
     }
 }

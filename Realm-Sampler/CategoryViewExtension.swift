@@ -11,11 +11,14 @@ import UIKit
 
 extension CategoryViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return categories.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("") as! CategoryCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("CategoryCell") as! CategoryCell
+        
+        cell.categoryLabel.text = categories[indexPath.row].category
+        
         return cell
     }
 }
