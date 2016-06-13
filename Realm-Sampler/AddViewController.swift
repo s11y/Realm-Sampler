@@ -57,6 +57,11 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         super.viewWillAppear(animated)
         categoryPicer.selectedRowInComponent(category)
         self.convertCategory(selectedRow: category)
+        
+        guard let todo = self.updatingTodo else { return }
+        textField.text = todo.todo
+        dateTextField.text = todo.due_date.convertDate()
+        categoryTextField.text = categoryArray[todo.category]
     }
 
     override func didReceiveMemoryWarning() {
