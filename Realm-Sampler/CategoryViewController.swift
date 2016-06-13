@@ -8,14 +8,15 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var categoryTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        categoryTable.delegate = self
+        categoryTable.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {

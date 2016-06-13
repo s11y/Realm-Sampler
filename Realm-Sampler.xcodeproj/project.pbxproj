@@ -23,6 +23,9 @@
 		3988879C1D05C43A00E91C06 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3988879A1D05C43A00E91C06 /* TodoCell.xib */; };
 		3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988879E1D05C4B400E91C06 /* ToDoModel.swift */; };
 		39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F301D0F1F8000649F1F /* CategoryViewController.swift */; };
+		39B10F331D0F203C00649F1F /* CategoryViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */; };
+		39B10F361D0F20D600649F1F /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F341D0F20D600649F1F /* CategoryCell.swift */; };
+		39B10F371D0F20D600649F1F /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B10F351D0F20D600649F1F /* CategoryCell.xib */; };
 		39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E618E21D05D398009ECBC3 /* AddViewController.swift */; };
 		9A2D7912655BA1AFB6257852 /* Pods_Realm_Sampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E392083DB5797719A8C6D275 /* Pods_Realm_Sampler.framework */; };
 		D6F42249C11EEB4C9E4CFBA0 /* Pods_Realm_SamplerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C021097521FF7B865CDD5F /* Pods_Realm_SamplerUITests.framework */; };
@@ -67,6 +70,9 @@
 		3988879A1D05C43A00E91C06 /* TodoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		3988879E1D05C4B400E91C06 /* ToDoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
 		39B10F301D0F1F8000649F1F /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewExtension.swift; sourceTree = "<group>"; };
+		39B10F341D0F20D600649F1F /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		39B10F351D0F20D600649F1F /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		39E618E21D05D398009ECBC3 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		400CF6877D62CA17EE250B12 /* Pods-Realm-SamplerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5925BC13DADFA8C0BFBF79C7 /* Pods-Realm-SamplerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 				3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */,
 				394F3DBC1D0F087700752948 /* AddViewExtension.swift */,
 				394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */,
+				39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -180,7 +187,7 @@
 				398887641D05B8A300E91C06 /* Assets.xcassets */,
 				398887661D05B8A300E91C06 /* LaunchScreen.storyboard */,
 				398887691D05B8A300E91C06 /* Info.plist */,
-				3988879D1D05C44000E91C06 /* TodoCell */,
+				39B10F391D0F20EA00649F1F /* Cell */,
 				3922DFBC1D0A08610009BBBA /* Model */,
 				3922DFBD1D0A08670009BBBA /* Extension */,
 			);
@@ -212,6 +219,24 @@
 				3988879A1D05C43A00E91C06 /* TodoCell.xib */,
 			);
 			name = TodoCell;
+			sourceTree = "<group>";
+		};
+		39B10F381D0F20DD00649F1F /* CategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				39B10F341D0F20D600649F1F /* CategoryCell.swift */,
+				39B10F351D0F20D600649F1F /* CategoryCell.xib */,
+			);
+			name = CategoryCell;
+			sourceTree = "<group>";
+		};
+		39B10F391D0F20EA00649F1F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3988879D1D05C44000E91C06 /* TodoCell */,
+				39B10F381D0F20DD00649F1F /* CategoryCell */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		39E618E41D05D6D4009ECBC3 /* Controllers */ = {
@@ -336,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B10F371D0F20D600649F1F /* CategoryCell.xib in Resources */,
 				398887681D05B8A300E91C06 /* LaunchScreen.storyboard in Resources */,
 				3988879C1D05C43A00E91C06 /* TodoCell.xib in Resources */,
 				398887651D05B8A300E91C06 /* Assets.xcassets in Resources */,
@@ -487,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B10F331D0F203C00649F1F /* CategoryViewExtension.swift in Sources */,
 				39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */,
 				3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */,
 				394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */,
@@ -497,6 +524,7 @@
 				3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */,
 				394F3DC11D0F101600752948 /* CategoryModel.swift in Sources */,
 				3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */,
+				39B10F361D0F20D600649F1F /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
