@@ -9,6 +9,11 @@
 import UIKit
 import RealmSwift
 
+enum RLMSaveMode {
+    case Create
+    case Update
+}
+
 class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var textField: UITextField!
@@ -30,7 +35,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     var isCreate = true
     
     var updatingTodo: ToDoModel!
-
+    
+    var mode: RLMSaveMode = .Create
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,8 +69,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         textField.text = todo.todo
         dateTextField.text = todo.due_date.convertDate()
         categoryTextField.text = categoryArray[todo.category]
+        mode = .Update
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -73,8 +81,13 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         guard let date: NSDate = datePicker.date else { return }
         guard let text = textField.text else { return }
         
-        if categoryTextField.text != nil {
-            self.create(todo: text, due_date: date, category_id: self.category)
+        if categoryTextField.text?.isEmpty == false {
+            switch mode {
+            case .Create:
+                self.create(todo: text, due_date: date, category_id: self.category)
+            case .Update:
+                self.update()
+            }
         }
     }
     
@@ -98,6 +111,10 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         todo.category = category
         todo.isDone = 0
         todo.save()
+    }
+    
+    func update() {
+        
     }
     
     func convertCategory(selectedRow row: Int) {
