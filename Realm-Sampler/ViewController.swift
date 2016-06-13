@@ -100,7 +100,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         done.backgroundColor = UIColor.greenColor()
         
-        return [delete, done]
+        let edit = UITableViewRowAction(style: .Normal, title: "Edit") { (action, indexpath) in
+            self.todo = self.todos[indexPath.row]
+            self.performSegueWithIdentifier("toAdd", sender: self)
+        }
+        
+        return [delete, done, edit]
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -40,8 +40,6 @@ class ToDoModel: Object {
             return loadAll()
         case .UnDone:
             return loadUndone()
-        default:
-            break
         }
     }
     
