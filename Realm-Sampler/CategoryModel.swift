@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+import RealmSwift
+
+class CategoryModel: Object {
+    
+    static let realm = try! Realm()
+    
+    dynamic private var id: Int = 0
+    dynamic var category: String = ""
+    
+    override static func primaryKey() -> String {
+        return "id"
+    }
+}
