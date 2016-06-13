@@ -22,9 +22,13 @@
 ToDoModelのカラムは以下のとおり
 - id プライマリーキー(Int)
 - todo todoの内容(String)
-- category todoのカテゴリー(Int)
+- category todoのカテゴリー(CategoryModel)
 - due date 期限(NSDate)
 - isDone 完了済みかどうか(0ならまだ、1なら完了済)
+
+CategoryModelのカラムは以下のとおり
+- id プライマリーキー(Int)
+- category カテゴリーの内容(String)
 
 ## Create データの作成
 
