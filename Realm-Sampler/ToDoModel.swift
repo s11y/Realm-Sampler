@@ -38,13 +38,11 @@ class ToDoModel: Object {
         return todo
     }
     
-    static func update(content: String, category: Int, dueDate: NSDate) -> ToDoModel {
-        let todo = ToDoModel()
-        todo.todo = content
-        todo.category = category
-        todo.due_date = dueDate
-        todo.isDone = 0
-        return todo
+    static func update(model: ToDoModel,content: String, category: Int, dueDate: NSDate) {
+        model.todo = content
+        model.category = category
+        model.due_date = dueDate
+        model.isDone = 0
     }
     
     static func fetch(FetchType type: FetchType) -> [ToDoModel] {

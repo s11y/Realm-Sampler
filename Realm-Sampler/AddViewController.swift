@@ -110,8 +110,11 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func update(todo content: String, due_date date: NSDate, category_id category: Int) {
-        let todo = ToDoModel.update(content, category: category, dueDate: date)
-        todo.save()
+        
+        let realm = try! Realm()
+        try! realm.write {
+            ToDoModel.update(updatingTodo, content: content, category: category, dueDate: date)
+        }
         
     }
     
