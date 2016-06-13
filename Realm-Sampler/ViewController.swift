@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var segment: UISegmentedControl!
     
-    var todos = [ToDoModel]()
+    var todos: [ToDoModel] = []
     
     var todo: ToDoModel!
     
