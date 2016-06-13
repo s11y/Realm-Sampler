@@ -28,9 +28,9 @@ class ToDoModel: Object {
         return "id"
     }
     
-    static func create(todoToCreate: String, category: Int, dueDate: NSDate) -> ToDoModel {
+    static func create(content: String, category: Int, dueDate: NSDate) -> ToDoModel {
         let todo = ToDoModel()
-        todo.todo = todoToCreate
+        todo.todo = content
         todo.category = category
         todo.due_date = dueDate
         todo.isDone = 0
@@ -38,8 +38,11 @@ class ToDoModel: Object {
         return todo
     }
     
-    static func update() -> ToDoModel {
+    static func update(content: String, category: Int, dueDate: NSDate) -> ToDoModel {
         let todo = ToDoModel()
+        todo.todo = content
+        todo.category = category
+        todo.due_date = dueDate
         return todo
     }
     

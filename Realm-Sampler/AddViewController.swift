@@ -86,7 +86,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             case .Create:
                 self.create(todo: text, due_date: date, category_id: self.category)
             case .Update:
-                self.update()
+                self.update(todo: text, due_date: date, category_id: self.category)
             }
         }
     }
@@ -109,7 +109,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         todo.save()
     }
     
-    func update() {
+    func update(todo content: String, due_date date: NSDate, category_id category: Int) {
+        let todo = ToDoModel.update(content, category: category, dueDate: date)
+        todo.save()
         
     }
     
