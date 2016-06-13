@@ -116,7 +116,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = todoTable.dequeueReusableCellWithIdentifier("todoCell") as! TodoCell
         
         let item = todos[indexPath.row]
-        cell.duedateLabel.text = item.due_date.convertString()
+        cell.duedateLabel.text = item.due_date.convertDate()
         cell.todoLabel.text = item.todo
         
         return cell
