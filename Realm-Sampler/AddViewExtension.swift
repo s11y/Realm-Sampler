@@ -39,12 +39,12 @@ extension AddViewController {
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryArray[row]
+        return categoryArray[row].category
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.convertCategory(selectedRow: row)
-        self.category = row
+        self.category = categoryArray[row]
     }
     
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {

@@ -28,9 +28,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     var categoryPicer: UIPickerView!
     
-    let categoryArray: [String] = ["勉強", "家事", "プログラミング"]
+    let categoryArray: [CategoryModel] = []
     
-    var category = 0
+    var category: CategoryModel!
     
     var isCreate = true
     
@@ -52,13 +52,18 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        categoryPicer.selectedRowInComponent(category)
-        self.convertCategory(selectedRow: category)
+        if let category = categoryArray.indexOf(self.category) {
+            categoryPicer.selectedRowInComponent(category)
+            self.convertCategory(selectedRow: category)
+        }else {
+            categoryPicer.selectedRowInComponent(0)
+            self.convertCategory(selectedRow: 0)
+        }
         
         guard let todo = self.updatingTodo else { return }
         textField.text = todo.todo
         dateTextField.text = todo.due_date.convertDate()
-        categoryTextField.text = categoryArray[todo.category]
+        categoryTextField.text = todo.category?.category
         mode = .Update
     }
     
@@ -95,12 +100,12 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dateTextField.text = date.convertDate()
     }
     
-    func create(todo content: String, due_date date: NSDate, category_id category: Int) {
+    func create(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
         let todo = ToDoModel.create(content, category: category, dueDate: date)
         todo.save()
     }
     
-    func update(todo content: String, due_date date: NSDate, category_id category: Int) {
+    func update(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
         
         let realm = try! Realm()
         try! realm.write {
@@ -110,7 +115,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func convertCategory(selectedRow row: Int) {
-        categoryTextField.text = categoryArray[row]
+        categoryTextField.text = categoryArray[row].category
     }
     
     func transition() {
