@@ -88,6 +88,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             case .Update:
                 self.update(todo: text, due_date: date, category_id: self.category)
             }
+            self.transition()
         }
     }
     
@@ -120,7 +121,10 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     func convertCategory(selectedRow row: Int) {
         categoryTextField.text = categoryArray[row]
-        
+    }
+    
+    func transition() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
