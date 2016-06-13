@@ -22,6 +22,7 @@
 		3988879B1D05C43A00E91C06 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398887991D05C43A00E91C06 /* TodoCell.swift */; };
 		3988879C1D05C43A00E91C06 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3988879A1D05C43A00E91C06 /* TodoCell.xib */; };
 		3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988879E1D05C4B400E91C06 /* ToDoModel.swift */; };
+		39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F301D0F1F8000649F1F /* CategoryViewController.swift */; };
 		39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E618E21D05D398009ECBC3 /* AddViewController.swift */; };
 		9A2D7912655BA1AFB6257852 /* Pods_Realm_Sampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E392083DB5797719A8C6D275 /* Pods_Realm_Sampler.framework */; };
 		D6F42249C11EEB4C9E4CFBA0 /* Pods_Realm_SamplerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C021097521FF7B865CDD5F /* Pods_Realm_SamplerUITests.framework */; };
@@ -65,6 +66,7 @@
 		398887991D05C43A00E91C06 /* TodoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		3988879A1D05C43A00E91C06 /* TodoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		3988879E1D05C4B400E91C06 /* ToDoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
+		39B10F301D0F1F8000649F1F /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		39E618E21D05D398009ECBC3 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		400CF6877D62CA17EE250B12 /* Pods-Realm-SamplerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5925BC13DADFA8C0BFBF79C7 /* Pods-Realm-SamplerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				3988875F1D05B8A300E91C06 /* ViewController.swift */,
 				39E618E21D05D398009ECBC3 /* AddViewController.swift */,
+				39B10F301D0F1F8000649F1F /* CategoryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */,
 				3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */,
 				394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */,
 				398887601D05B8A300E91C06 /* ViewController.swift in Sources */,

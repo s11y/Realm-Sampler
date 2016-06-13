@@ -17,6 +17,7 @@
 - TODOの期限のタイミングでの通知
 
 # CRUD
+CRUDのやり方は、[Realm Docs](https://realm.io/jp/docs/swift/latest/)のとおりです。
 
 ## モデルの設計
 ToDoModelのカラムは以下のとおり
@@ -31,6 +32,12 @@ CategoryModelのカラムは以下のとおり
 - category カテゴリーの内容(String)
 
 ## Create データの作成
+```
+ let realm = try Realm()
+ try realm.write {
+   realm.add()
+ }
+```
 
 ## Read データの取得
 
