@@ -25,6 +25,7 @@ class CategoryModel: Object {
     
     static func create() -> CategoryModel {
         let category = CategoryModel()
+        category.id = lastId()
         return category
     }
     

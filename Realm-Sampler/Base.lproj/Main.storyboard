@@ -126,6 +126,24 @@
             </objects>
             <point key="canvasLocation" x="4099" y="428"/>
         </scene>
+        <!--Add Category View Controller-->
+        <scene sceneID="pfz-9O-ATk">
+            <objects>
+                <viewController id="6SB-Rd-ywv" customClass="AddCategoryViewController" customModule="Realm_Sampler" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MZ8-RT-ffe"/>
+                        <viewControllerLayoutGuide type="bottom" id="sdb-4Z-9LU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iHF-eJ-98U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxK-dM-fRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3863" y="1262"/>
+        </scene>
         <!--Item-->
         <scene sceneID="5Ti-RX-EnV">
             <objects>
@@ -162,7 +180,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMP-aU-XEc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2601" y="1147"/>
+            <point key="canvasLocation" x="2596" y="1479"/>
         </scene>
         <!--Category View Controller-->
         <scene sceneID="MYC-p3-h2C">
@@ -189,14 +207,21 @@
                             <constraint firstItem="SnN-3d-zZq" firstAttribute="leading" secondItem="zgV-I9-lal" secondAttribute="leadingMargin" constant="-20" id="ndV-gR-a26"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uZp-LH-lqO"/>
+                    <navigationItem key="navigationItem" id="uZp-LH-lqO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="K4A-K8-sMQ">
+                            <connections>
+                                <action selector="didSelectAdd" destination="3Bd-9t-EBC" id="Eyd-yc-D2T"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoryTable" destination="SnN-3d-zZq" id="Wve-3C-zgh"/>
+                        <segue destination="6SB-Rd-ywv" kind="show" identifier="toAddCategory" id="pCq-1W-87X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDl-G9-4YF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3413" y="428"/>
+            <point key="canvasLocation" x="3414" y="582"/>
         </scene>
         <!--Item-->
         <scene sceneID="tdq-AJ-Qzk">

@@ -34,8 +34,16 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didSelectAdd() {
+        self.transition()
+    }
+    
     func read() {
         categories = CategoryModel.loadAll()
         categoryTable.reloadData()
+    }
+    
+    func transition() {
+        self.performSegueWithIdentifier("toAddCategory", sender: self)
     }
 }
