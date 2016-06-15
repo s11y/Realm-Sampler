@@ -23,9 +23,10 @@ class CategoryModel: Object {
         return "id"
     }
     
-    static func create() -> CategoryModel {
+    static func create(newCategory text: String) -> CategoryModel {
         let category = CategoryModel()
         category.id = lastId()
+        category.category = text
         return category
     }
     
