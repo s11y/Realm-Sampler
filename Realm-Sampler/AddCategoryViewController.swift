@@ -26,13 +26,13 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func didSelectSave() {
-        
+        self.create()
     }
     
     func create() {
         guard let text = categoryTextField.text else { return }
         let category = CategoryModel.create(newCategory: text)
-        category.save() 
+        category.save()
         
     }
     
