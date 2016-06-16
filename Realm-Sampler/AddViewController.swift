@@ -28,7 +28,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     var categoryPicer: UIPickerView!
     
-    let categoryArray: [CategoryModel] = []
+    var categoryArray: [CategoryModel] = []
     
     var category: CategoryModel!
     
@@ -52,13 +52,16 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.read()
         categoryPicer.selectedRowInComponent(0)
         self.convertCategory(selectedRow: 0)
+        self.category = categoryArray[0]
         
         guard let todo = self.updatingTodo else { return }
         textField.text = todo.todo
         dateTextField.text = todo.due_date.convertDate()
         categoryTextField.text = todo.category?.category
+        self.category = todo.category
         mode = .Update
     }
     
@@ -80,6 +83,10 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
             }
             self.transition()
         }
+    }
+    
+    func read() {
+        categoryArray = CategoryModel.loadAll()
     }
     
     func didSelectTapGesture() {

@@ -213,7 +213,7 @@
         <!--Category View Controller-->
         <scene sceneID="MYC-p3-h2C">
             <objects>
-                <viewController id="3Bd-9t-EBC" customClass="CategoryViewController" customModule="Realm_Sampler" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3Bd-9t-EBC" customClass="CategoryViewController" customModule="Realm_Sampler" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iMk-JV-PGS"/>
                         <viewControllerLayoutGuide type="bottom" id="toL-o4-hbU"/>
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDl-G9-4YF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3414" y="582"/>
+            <point key="canvasLocation" x="3416" y="539"/>
         </scene>
         <!--Item-->
         <scene sceneID="tdq-AJ-Qzk">
