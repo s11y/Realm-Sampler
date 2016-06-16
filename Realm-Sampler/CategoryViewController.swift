@@ -40,18 +40,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     func read() {
         categories = CategoryModel.loadAll()
-        if categories.count == 0 {
-            self.createSomeCategory()
-        }
         categoryTable.reloadData()
-    }
-    
-    func createSomeCategory() {
-        let categories = ["家事", "勉強", "仕事"]
-        for i in categories {
-            let category = CategoryModel.create(newCategory: i)
-            category.save()
-        }
     }
     
     func transition() {

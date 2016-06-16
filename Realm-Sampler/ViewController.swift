@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.boolForKey("firstLaunch") {
-            
+            self.registerRealm()
             defaults.setBool(false, forKey: "firstLaunch")
         }
     }
@@ -59,18 +59,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.reloadData()
     }
     
-    func changeSegment(segment: UISegmentedControl) {
-        switch segment.selectedSegmentIndex {
-        case 0:
-            todos = ToDoModel.fetch(FetchType: .UnDone)
-        case 1:
-            todos = ToDoModel.fetch(FetchType: .All)
-        default:
-            break
-        }
-        todoTable.reloadData()
-    }
-    
     @IBAction func didSelectAdd() {
         self.transition()
     }
@@ -85,6 +73,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func transition() {
         self.performSegueWithIdentifier("toAdd", sender: self)
+    }
+    
+    func changeSegment(segment: UISegmentedControl) {
+        switch segment.selectedSegmentIndex {
+        case 0:
+            todos = ToDoModel.fetch(FetchType: .UnDone)
+        case 1:
+            todos = ToDoModel.fetch(FetchType: .All)
+        default:
+            break
+        }
+        todoTable.reloadData()
+    }
+    
+    func registerRealm() {
+        let categories = ["家事", "勉強", "仕事"]
+        for i in categories {
+            let category = CategoryModel.create(newCategory: i)
+            category.save()
+        }
     }
 }
 

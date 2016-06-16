@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = NSUserDefaults.standardUserDefaults()
         let dic = ["firstLaunch": true]
         defaults.registerDefaults(dic)
-        
+        defaults.synchronize()
         return true
     }
 

@@ -26,7 +26,6 @@
 		39B10F331D0F203C00649F1F /* CategoryViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */; };
 		39B10F361D0F20D600649F1F /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F341D0F20D600649F1F /* CategoryCell.swift */; };
 		39B10F371D0F20D600649F1F /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B10F351D0F20D600649F1F /* CategoryCell.xib */; };
-		39D6DA441D1333B900C6EEE0 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 39D6DA431D1333B900C6EEE0 /* default.realm */; };
 		39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E618E21D05D398009ECBC3 /* AddViewController.swift */; };
 		39E6705F1D0FECB6000521EB /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E6705E1D0FECB6000521EB /* AddCategoryViewController.swift */; };
 		9A2D7912655BA1AFB6257852 /* Pods_Realm_Sampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E392083DB5797719A8C6D275 /* Pods_Realm_Sampler.framework */; };
@@ -75,7 +74,6 @@
 		39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewExtension.swift; sourceTree = "<group>"; };
 		39B10F341D0F20D600649F1F /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		39B10F351D0F20D600649F1F /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		39D6DA431D1333B900C6EEE0 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
 		39E618E21D05D398009ECBC3 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		39E6705E1D0FECB6000521EB /* AddCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
 		400CF6877D62CA17EE250B12 /* Pods-Realm-SamplerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 		3988875C1D05B8A300E91C06 /* Realm-Sampler */ = {
 			isa = PBXGroup;
 			children = (
-				39D6DA431D1333B900C6EEE0 /* default.realm */,
 				3988875D1D05B8A300E91C06 /* AppDelegate.swift */,
 				39E618E41D05D6D4009ECBC3 /* Controllers */,
 				398887611D05B8A300E91C06 /* Main.storyboard */,
@@ -372,7 +369,6 @@
 				3988879C1D05C43A00E91C06 /* TodoCell.xib in Resources */,
 				398887651D05B8A300E91C06 /* Assets.xcassets in Resources */,
 				398887631D05B8A300E91C06 /* Main.storyboard in Resources */,
-				39D6DA441D1333B900C6EEE0 /* default.realm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
