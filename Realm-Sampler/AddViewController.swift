@@ -52,13 +52,8 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if let category = categoryArray.indexOf(self.category) {
-            categoryPicer.selectedRowInComponent(category)
-            self.convertCategory(selectedRow: category)
-        }else {
-            categoryPicer.selectedRowInComponent(0)
-            self.convertCategory(selectedRow: 0)
-        }
+        categoryPicer.selectedRowInComponent(0)
+        self.convertCategory(selectedRow: 0)
         
         guard let todo = self.updatingTodo else { return }
         textField.text = todo.todo

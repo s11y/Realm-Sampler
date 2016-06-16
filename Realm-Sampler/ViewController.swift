@@ -31,6 +31,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.registerNib(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
         
         segment.addTarget(self, action: #selector(self.changeSegment(_:)), forControlEvents: .TouchUpInside)
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.boolForKey("firstLaunch") {
+            
+            defaults.setBool(false, forKey: "firstLaunch")
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

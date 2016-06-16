@@ -13,12 +13,12 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var categoryTable: UITableView!
     
     var categories: [CategoryModel] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         categoryTable.registerNib(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
-
+        
         categoryTable.delegate = self
         categoryTable.dataSource = self
     }
@@ -28,7 +28,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.read()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,7 +40,18 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     func read() {
         categories = CategoryModel.loadAll()
+        if categories.count == 0 {
+            self.createSomeCategory()
+        }
         categoryTable.reloadData()
+    }
+    
+    func createSomeCategory() {
+        let categories = ["家事", "勉強", "仕事"]
+        for i in categories {
+            let category = CategoryModel.create(newCategory: i)
+            category.save()
+        }
     }
     
     func transition() {

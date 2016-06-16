@@ -69,7 +69,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-9I-Nii">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-9I-Nii">
                                 <rect key="frame" x="24" y="84" width="552" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -81,12 +81,12 @@
                                     <action selector="didSelectSave" destination="cKX-WD-IEr" eventType="touchUpInside" id="QBE-b0-JZg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gR-k7-RdK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5gR-k7-RdK">
                                 <rect key="frame" x="24" y="158" width="552" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kaz-Pw-GFO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kaz-Pw-GFO">
                                 <rect key="frame" x="24" y="232" width="552" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -124,7 +124,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zB7-e5-vFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="eK1-rd-0uc"/>
             </objects>
-            <point key="canvasLocation" x="4099" y="428"/>
+            <point key="canvasLocation" x="4096" y="539"/>
         </scene>
         <!--Add Category View Controller-->
         <scene sceneID="pfz-9O-ATk">
@@ -145,6 +145,9 @@
                                     <constraint firstAttribute="height" constant="101" id="hnA-fB-agy"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="didSelectSave" destination="6SB-Rd-ywv" eventType="touchUpInside" id="gXl-Lj-VUa"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocB-wc-k32">
                                 <rect key="frame" x="20" y="132" width="560" height="30"/>
@@ -161,6 +164,9 @@
                             <constraint firstAttribute="leadingMargin" secondItem="ocB-wc-k32" secondAttribute="leading" id="yDS-AK-gna"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryTextField" destination="ocB-wc-k32" id="VFX-TO-arn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bxK-dM-fRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,6 +272,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4cb-B1-zXY"/>
+        <segue reference="Srk-FX-HQJ"/>
     </inferredMetricsTieBreakers>
 </document>
