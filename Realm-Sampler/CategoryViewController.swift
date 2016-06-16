@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var categoryTable: UITableView!
     
     var categories: [CategoryModel] = []
+    
+    var updatingCategory: CategoryModel!
+    
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +48,21 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         categoryTable.reloadData()
     }
     
+    func deleteModel(index id: Int) {
+        try! realm.write {
+            realm.delete(categories[id])
+        }
+    }
+    
     func transition() {
         self.performSegueWithIdentifier("toAddCategory", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toAddCategory" {
+            let addCategory = segue.destinationViewController as! AddCategoryViewController
+            addCategory.mode = .Update
+            addCategory.updatingCategory = self.updatingCategory
+        }
     }
 }

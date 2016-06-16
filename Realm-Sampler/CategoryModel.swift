@@ -30,6 +30,10 @@ class CategoryModel: Object {
         return category
     }
     
+    static func update(model: CategoryModel, content: String) {
+        model.category = content
+    }
+    
     static func lastId() -> Int {
         if let category = realm.objects(CategoryModel).sorted("id", ascending: false).first {
             return category.id + 1

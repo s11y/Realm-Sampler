@@ -28,10 +28,12 @@ extension CategoryViewController {
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { (action, index) in
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.deleteModel(index: indexPath.row)
         }
         
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { (action, index) in
-            tableView.reloadData()
+            self.updatingCategory = self.categories[index.row]
+            self.transition()
         }
         
         return [delete, edit]

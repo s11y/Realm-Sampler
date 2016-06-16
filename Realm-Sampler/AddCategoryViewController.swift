@@ -7,10 +7,20 @@
 //
 
 import UIKit
+import RealmSwift
+
+enum CreateMode {
+    case Create
+    case Update
+}
 
 class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var categoryTextField: UITextField!
+    
+    var updatingCategory: CategoryModel!
+    
+    var mode: CreateMode = .Create
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,14 +36,26 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     }
     
     @IBAction func didSelectSave() {
-        self.create()
+        guard let text = categoryTextField.text else { return }
+        switch mode {
+        case .Create:
+            self.create(categoryContent: text)
+        case .Update:
+            self.update(categoryContent: text)
+        }
     }
     
-    func create() {
-        guard let text = categoryTextField.text else { return }
+    func create(categoryContent text: String) {
         let category = CategoryModel.create(newCategory: text)
         category.save()
         
+    }
+    
+    func update(categoryContent text: String) {
+        let realm = try! Realm()
+        try! realm.write({ 
+            CategoryModel.update(updatingCategory, content: text)
+        })
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
