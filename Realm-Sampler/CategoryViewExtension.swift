@@ -21,4 +21,19 @@ extension CategoryViewController {
         
         return cell
     }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { (action, index) in
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+        
+        let edit = UITableViewRowAction(style: .Normal, title: "Edit") { (action, index) in
+            tableView.reloadData()
+        }
+        
+        return [delete, edit]
+    }
 }
