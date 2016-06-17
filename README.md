@@ -33,9 +33,14 @@ CategoryModelのカラムは以下のとおり
 
 ## Create データの作成
 ```
+ // 保存するためのデータを作成する。今回はToDoModel
+ let todo = ToDoModel()
+ todo.todo = "hoge"
+
+ // Realmに作成したデータを保存
  let realm = try Realm()
  try realm.write {
-   realm.add()
+   realm.add(todo)
  }
 ```
 
