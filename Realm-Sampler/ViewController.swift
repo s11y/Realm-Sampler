@@ -61,6 +61,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.reloadData()
     }
     
+    // Addボタンを押したときの処理(画面遷移)
     @IBAction func didSelectAdd() {
         self.transition()
     }

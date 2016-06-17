@@ -72,16 +72,19 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    // Saveボタンを押したときの処理
     @IBAction func didSelectSave() {
+        // それぞれのUITextFieldの中身が空じゃないことを確認
         guard let date: NSDate = datePicker.date else { return }
         guard let text = textField.text else { return }
         
         if categoryTextField.text?.isEmpty == false {
+            // RLMSaveModeで保存か更新かを切り替え
             switch mode {
             case .Create:
-                self.create(todo: text, due_date: date, category_id: self.category)
+                self.create(todo: text, due_date: date, category_id: self.category) // 保存するためのメソッドにデータを渡す
             case .Update:
-                self.update(todo: text, due_date: date, category_id: self.category)
+                self.update(todo: text, due_date: date, category_id: self.category) // 更新するためのメソッドにデータを渡す
             }
             self.transition()
         }
