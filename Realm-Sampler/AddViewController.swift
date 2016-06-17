@@ -52,17 +52,19 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.read()
+        self.readCategory()
         categoryPicer.selectedRowInComponent(0)
         self.convertCategory(selectedRow: 0)
         self.category = categoryArray[0]
         
+        // RLMSaveModeがUpdateの時のみ、処理
         guard let todo = self.updatingTodo else { return }
+        // 更新前のデータを、それぞれのUITextFieldに表示
         textField.text = todo.todo
         dateTextField.text = todo.due_date.convertDate()
         categoryTextField.text = todo.category?.category
         self.category = todo.category
-        mode = .Update
+        mode = .Update // RLMSaveModeをUpdateに設定
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,7 +87,8 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         }
     }
     
-    func read() {
+    // カテゴリーを全件取得
+    func readCategory() {
         categoryArray = CategoryModel.loadAll()
     }
     
@@ -97,13 +100,17 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dateTextField.text = date.convertDate()
     }
     
-    //
+    // データを保存するためのメソッド
     func create(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
+        // それぞれのUITextFieldに入っているデータを元に、保存するデータを作成
         let todo = ToDoModel.create(content, category: category, dueDate: date)
+        // 作成したデータを保存
         todo.save()
     }
     
+    // データを更新するためのメソッド
     func update(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
+        // それぞれのUITextFieldに入っているデータを元に、データを更新
         ToDoModel.update(updatingTodo, content: content, category: category, dueDate: date)
     }
     
