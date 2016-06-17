@@ -24,10 +24,17 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
         categoryTextField.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if mode == .Update {
+            categoryTextField.text = updatingCategory.category
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +50,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
         case .Update:
             self.update(categoryContent: text)
         }
+        self.navigationController?.popViewControllerAnimated(true) 
     }
     
     func create(categoryContent text: String) {
