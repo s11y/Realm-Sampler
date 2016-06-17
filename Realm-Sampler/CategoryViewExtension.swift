@@ -37,6 +37,8 @@ extension CategoryViewController {
             self.deleteModel(index: indexPath.row)
         }
         
+        delete.backgroundColor = UIColor.redColor()
+        
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { (action, index) in
             self.updatingCategory = self.categories[index.row]
             self.transition()
