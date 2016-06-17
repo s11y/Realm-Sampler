@@ -14,24 +14,34 @@ class CategoryModel: Object {
     
     static let realm = try! Realm()
     
-    dynamic private var id: Int = 0
-    dynamic var category: String = ""
+    dynamic private var id: Int = 0 // CategoryModelのid
+    dynamic var category: String = "" // Categoryの内容
     
     let todoModel = List<ToDoModel>()
     
+    // idをプライマリーキーに設定
     override static func primaryKey() -> String {
         return "id"
     }
     
+    // 新しいCategoryのデータを作成するためのメソッド
     static func create(newCategory text: String) -> CategoryModel {
+        // インスタンスを生成
         let category = CategoryModel()
+        // それぞれにデータをいれる
         category.id = lastId()
         category.category = text
+        
         return category
     }
     
+    // データを更新するためのメソッド
     static func update(model: CategoryModel, content: String) {
-        model.category = content
+        // ローカルのdefault.realmとのtransactionを生成
+        try! realm.write {
+            // 
+            model.category = content
+        }
     }
     
     static func lastId() -> Int {

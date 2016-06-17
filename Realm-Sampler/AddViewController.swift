@@ -109,11 +109,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     func update(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
         
-        let realm = try! Realm()
-        try! realm.write {
             ToDoModel.update(updatingTodo, content: content, category: category, dueDate: date)
-        }
-        
     }
     
     func convertCategory(selectedRow row: Int) {

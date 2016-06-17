@@ -60,10 +60,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     }
     
     func update(categoryContent text: String) {
-        let realm = try! Realm()
-        try! realm.write({ 
             CategoryModel.update(updatingCategory, content: text)
-        })
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

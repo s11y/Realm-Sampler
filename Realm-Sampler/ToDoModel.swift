@@ -45,11 +45,13 @@ class ToDoModel: Object {
     
     // Todoの内容を変更し、更新するためのメソッド
     static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: NSDate) {
-        // それぞれのカラムにデータを入れる
-        model.todo = content
-        model.category = category
-        model.due_date = dueDate
-        model.isDone = 0
+        try! realm.write({
+            // それぞれのカラムにデータを入れる
+            model.todo = content
+            model.category = category
+            model.due_date = dueDate
+            model.isDone = 0
+        })
     }
     
     // FetchTypeで呼び出すメソッドを変更
