@@ -30,6 +30,11 @@ extension AddViewController {
         gestureRecognizer.addTarget(self, action: #selector(self.didSelectTapGesture))
     }
     
+    func didSelectTapGesture() {
+        dateTextField.resignFirstResponder()
+        categoryTextField.resignFirstResponder()
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }

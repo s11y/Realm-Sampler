@@ -9,18 +9,13 @@
 import UIKit
 import RealmSwift
 
-enum CreateMode {
-    case Create
-    case Update
-}
-
 class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var categoryTextField: UITextField!
     
     var updatingCategory: CategoryModel!
     
-    var mode: CreateMode = .Create
+    var mode: RLMSaveMode = .Create
 
     override func viewDidLoad() {
         super.viewDidLoad()

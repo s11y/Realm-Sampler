@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 初回起動時に呼ばれ、trueをセット
         let defaults = NSUserDefaults.standardUserDefaults()
         let dic = ["firstLaunch": true]
         defaults.registerDefaults(dic)

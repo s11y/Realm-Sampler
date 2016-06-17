@@ -16,13 +16,13 @@ enum RLMSaveMode {
 
 class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet var textField: UITextField!
+    @IBOutlet var textField: UITextField! // ToDoの内容のUITextField
     
-    @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var dateTextField: UITextField! // ToDoの期限を決めるためのUITextField
     
-    @IBOutlet var categoryTextField: UITextField!
+    @IBOutlet var categoryTextField: UITextField! // ToDoのカテゴリーを決めるためのUITextField
     
-    @IBOutlet var gestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet var gestureRecognizer: UITapGestureRecognizer! // 画面を触った時にキーボードを下げる
     
     var datePicker: UIDatePicker!
     
@@ -36,7 +36,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     var updatingTodo: ToDoModel!
     
-    var mode: RLMSaveMode = .Create
+    var mode: RLMSaveMode = .Create // データの作成か更新か決めるめたのenum
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +45,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dateTextField.delegate = self
         textField.delegate = self
         
-        self.setDatePicker()
-        self.setGestureSeletor()
-        self.setCategoryPicker()
+        self.setDatePicker() // datetextFieldにUIDatePickerを設定するためのメソッド -> AddViewExtension
+        self.setGestureSeletor() // gestureRecognizerの処理先を指定 -> AddViewExtension
+        self.setCategoryPicker() // categoryTextFieldにUIPickerViewを設定するためのメソッド -> AddViewExtension
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -89,11 +89,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         categoryArray = CategoryModel.loadAll()
     }
     
-    func didSelectTapGesture() {
-        dateTextField.resignFirstResponder()
-        categoryTextField.resignFirstResponder()
-    }
-    
     func changedDueDate() {
         changeLabelDate(datePicker.date)
     }
@@ -102,14 +97,14 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         dateTextField.text = date.convertDate()
     }
     
+    //
     func create(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
         let todo = ToDoModel.create(content, category: category, dueDate: date)
         todo.save()
     }
     
     func update(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
-        
-            ToDoModel.update(updatingTodo, content: content, category: category, dueDate: date)
+        ToDoModel.update(updatingTodo, content: content, category: category, dueDate: date)
     }
     
     func convertCategory(selectedRow row: Int) {

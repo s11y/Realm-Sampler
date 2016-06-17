@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet var todoTable: UITableView!
     
-    @IBOutlet var segment: UISegmentedControl!
+    @IBOutlet var segment: UISegmentedControl! // 全件取得か未完了ToDoかどちらを表示するか決めるためのUISegmentControl
     
     var todos: [ToDoModel] = []
     
@@ -30,12 +30,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         todoTable.registerNib(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
         
-        segment.addTarget(self, action: #selector(self.changeSegment(_:)), forControlEvents: .TouchUpInside)
+        segment.addTarget(self, action: #selector(self.changeSegment(_:)), forControlEvents: .TouchUpInside) // UISegmentControlのtargetを指定
         
+        // 初回起動時に処理
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.boolForKey("firstLaunch") {
             self.registerRealm()
-            defaults.setBool(false, forKey: "firstLaunch")
+            defaults.setBool(false, forKey: "firstLaunch") // 処理後 falseをセット
         }
     }
     
@@ -53,6 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Dispose of any resources that can be recreated.
     }
     
+    // 画面が表示される度に、Realmからデータを全件取得し、表示
     func read() {
         todos = ToDoModel.loadUndone()
         segment.selectedSegmentIndex = 0
@@ -75,6 +77,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.performSegueWithIdentifier("toAdd", sender: self)
     }
     
+    // UISegmentControlの選択で、表示するデータの種類を切り替え
     func changeSegment(segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:
@@ -87,6 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.reloadData()
     }
     
+    // 初回起動時に、Realmにカテゴリーをセット
     func registerRealm() {
         let categories = ["家事", "勉強", "仕事"]
         for i in categories {
