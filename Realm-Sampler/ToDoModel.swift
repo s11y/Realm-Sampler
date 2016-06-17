@@ -45,6 +45,7 @@ class ToDoModel: Object {
     
     // Todoの内容を変更し、更新するためのメソッド
     static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: NSDate) {
+        // ローカルのdefault.realmとのtransactionを生成
         try! realm.write({
             // それぞれのカラムにデータを入れる
             model.todo = content

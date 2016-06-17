@@ -39,26 +39,35 @@ class CategoryModel: Object {
     static func update(model: CategoryModel, content: String) {
         // ローカルのdefault.realmとのtransactionを生成
         try! realm.write {
-            // 
+            // categoryに内容を挿入
             model.category = content
         }
     }
     
+    // idを取得するためのメソッド
     static func lastId() -> Int {
+        // idの最大値を取得してから、+1して返す
         if let category = realm.objects(CategoryModel).sorted("id", ascending: false).first {
             return category.id + 1
         }else {
             return 1
         }
     }
+    
+    // 作成したデータを保存するためのメソッド
     func save() {
+        // ローカルのdefault.realmとのtransactionを生成
         try! CategoryModel.realm.write{
+            // データを追加
             CategoryModel.realm.add(self)
         }
     }
     
+    // でーたを全件取得
     static func loadAll() -> [CategoryModel] {
+        // idでソートして全件取得
         let categories = realm.objects(CategoryModel).sorted("id", ascending: true)
+        // 取得したデータを配列に入れる
         var array: [CategoryModel] = []
         for category in categories {
             array.append(category)
