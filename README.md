@@ -90,7 +90,7 @@ func save() {
 ```
 
 ## Read データの取得
-以下のコードでデータベースからデータを取得すします
+以下のコードでデータベースからデータを取得します
 
 ```
 let realm = try Realm()
@@ -138,5 +138,40 @@ static func loadAll() -> [CategoryModel] {
 ```
 
 ## Update データの更新
+以下のコードでデータベースにデータの更新を行えます。
 
+```
+let realm = try Realm()
+try realm.write {
+  // ここで変更を行う
+}
+```
+
+本プロジェクトでは、ToDoModelとCategoryModelではそれぞれで更新するための```update()```でデータの更新を行います。
+
+**ToDoModel.swift**
+```
+// ToDoModelのupdate
+static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: NSDate) {
+
+    try! realm.write({
+        model.todo = content
+        model.category = category
+        model.due_date = dueDate
+        model.isDone = 0
+    })
+}
+
+```
+
+**CategoryModel.swift**
+```
+// CategoryModelのupdate
+static func update(model: CategoryModel, content: String) {
+
+    try! realm.write {
+        model.category = content
+    }
+}
+```
 ## Delete データの削除
