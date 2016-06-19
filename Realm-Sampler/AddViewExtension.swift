@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 extension AddViewController {
+    // UIDatePickerをdateTextFieldを追加
     func setDatePicker() {
         datePicker = UIDatePicker()
         datePicker.addTarget(self, action: #selector(self.changedDueDate), forControlEvents: .ValueChanged)
@@ -18,6 +19,7 @@ extension AddViewController {
         dateTextField.inputView = datePicker
     }
     
+    // UIPickerViewをcategoryTextFieldを追加
     func setCategoryPicker() {
         categoryPicer = UIPickerView()
         categoryPicer.delegate = self
@@ -26,10 +28,12 @@ extension AddViewController {
         categoryTextField.inputView = categoryPicer
     }
     
+    // 画面上のUIGestureRecognizerのTargetを決める
     func setGestureSeletor() {
         gestureRecognizer.addTarget(self, action: #selector(self.didSelectTapGesture))
     }
     
+    // 画面を触った時に、キーボードを下げる
     func didSelectTapGesture() {
         dateTextField.resignFirstResponder()
         categoryTextField.resignFirstResponder()
