@@ -63,7 +63,7 @@ class CategoryModel: Object {
         }
     }
     
-    // でーたを全件取得
+    // データを全件取得
     static func loadAll() -> [CategoryModel] {
         // idでソートして全件取得
         let categories = realm.objects(CategoryModel).sorted("id", ascending: true)
