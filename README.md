@@ -32,6 +32,7 @@ CategoryModelのカラムは以下のとおり
 - category カテゴリーの内容(String)
 
 ## Create データの作成
+以下のコードでデータベースにデータを作成できます
 ```
  // 保存するためのデータを作成する。今回はToDoModel
  let todo = ToDoModel()
@@ -42,6 +43,48 @@ CategoryModelのカラムは以下のとおり
  try realm.write {
    realm.add(todo)
  }
+```
+
+本プロジェクトでは、ToDoModelとCategoryModelそれぞれのクラスに保存するための```create()```と```save()```で保存するデータの作成と作成したデータの保存をそれぞれ行います。
+
+```
+// ToDoModelのcreateとsave
+static func create(content: String, category: CategoryModel, dueDate: NSDate) -> ToDoModel {
+
+    let todo = ToDoModel()
+    todo.todo = content
+    todo.category = category
+    todo.due_date = dueDate
+    todo.isDone = 0
+    todo.id = lastId()
+
+    return todo
+}
+
+func save() {
+    try! ToDoModel.realm.write {
+        ToDoModel.realm.add(self)
+    }
+}
+```
+
+```
+// CategoryModelのcreateとsave
+static func create(newCategory text: String) -> CategoryModel {
+
+    let category = CategoryModel()
+    category.id = lastId()
+    category.category = text
+
+    return category
+}
+
+func save() {
+
+    try! CategoryModel.realm.write{
+        CategoryModel.realm.add(self)
+    }
+}
 ```
 
 ## Read データの取得
