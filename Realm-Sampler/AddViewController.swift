@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 
+// データを保存するのか更新するのか
 enum RLMSaveMode {
     case Create
     case Update
@@ -24,17 +25,15 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     @IBOutlet var gestureRecognizer: UITapGestureRecognizer! // 画面を触った時にキーボードを下げる
     
-    var datePicker: UIDatePicker!
+    var datePicker: UIDatePicker! // dateTextFieldで表示するUIDatePicker
     
-    var categoryPicer: UIPickerView!
+    var categoryPicer: UIPickerView! // categoryTextFieldで表示するUIPickerView
     
-    var categoryArray: [CategoryModel] = []
+    var categoryArray: [CategoryModel] = [] // UIPickerViewで表示するためのカテゴリーの配列
     
-    var category: CategoryModel!
+    var category: CategoryModel! // 保存するためのCategoryModelの変数
     
-    var isCreate = true
-    
-    var updatingTodo: ToDoModel!
+    var updatingTodo: ToDoModel! // 更新する際の元のデータとしてのCategoryModel
     
     var mode: RLMSaveMode = .Create // データの作成か更新か決めるめたのenum
     
@@ -53,9 +52,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.readCategory()
-        categoryPicer.selectedRowInComponent(0)
-        self.convertCategory(selectedRow: 0)
-        self.category = categoryArray[0]
+        categoryPicer.selectedRowInComponent(0) // 初期値を設定
+        self.convertCategory(selectedRow: 0) // 初期値を設定
+        self.category = categoryArray[0] // 初期値を設定
         
         // RLMSaveModeがUpdateの時のみ、処理
         guard let todo = self.updatingTodo else { return }
@@ -99,6 +98,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         changeLabelDate(datePicker.date)
     }
     
+    // 該当の日付をdateTextFieldに表示する
     func changeLabelDate(date: NSDate) {
         dateTextField.text = date.convertDate()
     }
@@ -117,10 +117,12 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         ToDoModel.update(updatingTodo, content: content, category: category, dueDate: date)
     }
     
+    // 該当する順番のCategoryModelをcategoryTextFieldを表示する
     func convertCategory(selectedRow row: Int) {
         categoryTextField.text = categoryArray[row].category
     }
     
+    // 戻る処理
     func transition() {
         self.navigationController?.popViewControllerAnimated(true)
     }
