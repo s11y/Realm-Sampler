@@ -9,7 +9,7 @@
 import UIKit
 
 extension NSDate {
-    // TODO: Rename
+    // NSDateをString型に変換
     func convertDate() -> String {
         let formatter = NSDateFormatter()
         formatter.locale = NSLocale(localeIdentifier: "ja_JP")

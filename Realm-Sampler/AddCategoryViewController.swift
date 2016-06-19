@@ -11,11 +11,11 @@ import RealmSwift
 
 class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     
-    @IBOutlet var categoryTextField: UITextField!
+    @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
     
-    var updatingCategory: CategoryModel!
+    var updatingCategory: CategoryModel! // 更新の際のデータ
     
-    var mode: RLMSaveMode = .Create
+    var mode: RLMSaveMode = .Create // 更新か作成か
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // 更新の際に、更新前のカテゴリーをUITextFieldに表示
         if mode == .Update {
             categoryTextField.text = updatingCategory.category
         }
@@ -37,7 +38,9 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    // Saveボタンの処理
     @IBAction func didSelectSave() {
+        // 
         guard let text = categoryTextField.text else { return }
         switch mode {
         case .Create:

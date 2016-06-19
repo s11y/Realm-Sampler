@@ -18,32 +18,39 @@ extension ViewController {
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        // スワイプでDeleteボタンを表示
         let delete = UITableViewRowAction(style: .Normal, title: "Delete") { (action, indexPath) in
             tableView.editing = false
-            //            ToDoModel().delete(idOfDelete :indexPath.row)
+            // 該当のデータを定数に代入
             let item = self.realm.objects(ToDoModel)[indexPath.row]
+            // 該当のデータをデータベースを削除する
             try! self.realm.write {
                 self.realm.delete(item
                 )
             }
+            // UITableViewから削除する
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         }
         
         delete.backgroundColor = UIColor.redColor()
         
+        // スワイプでDoneボタンを表示
         let done = UITableViewRowAction(style: .Normal, title: "DONE") { (action, indexPath) in
-            //            ToDoModel().updateDone(idOfUpdate: indexPath.row)
+            // 該当のデータを定数に代入
             let item = self.realm.objects(ToDoModel)[indexPath.row]
+            //データベースのデータを更新する
             try! self.realm.write({
-                item.isDone = 1
+                item.isDone = 1 // isDoneの値を1に変更
             })
         }
         
         done.backgroundColor = UIColor.greenColor()
         
+        // スワイプでEditボタンを表示
         let edit = UITableViewRowAction(style: .Normal, title: "Edit") { (action, indexpath) in
+            // AddViewに渡すデータを代入
             self.todo = self.todos[indexPath.row]
-            self.transition()
+            self.transition() // 画面遷移
         }
         
         return [delete, done, edit]

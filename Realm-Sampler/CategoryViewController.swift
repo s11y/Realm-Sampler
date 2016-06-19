@@ -11,11 +11,11 @@ import RealmSwift
 
 class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var categoryTable: UITableView!
+    @IBOutlet var categoryTable: UITableView! // CategoryModelのデータを表示するためのTableView
     
-    var categories: [CategoryModel] = []
+    var categories: [CategoryModel] = [] // TableViewで表示する配列
     
-    var updatingCategory: CategoryModel!
+    var updatingCategory: CategoryModel! // 更新するCategoryModel
     
     let realm = try! Realm()
     
@@ -39,6 +39,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    // Addボタンの処理
     @IBAction func didSelectAdd() {
         self.transition()
     }
@@ -48,6 +49,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         categoryTable.reloadData()
     }
     
+    // 
     func deleteModel(index id: Int) {
         try! realm.write {
             realm.delete(categories[id])
