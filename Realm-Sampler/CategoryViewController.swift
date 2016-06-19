@@ -30,7 +30,7 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         self.read()
     }
     
@@ -44,12 +44,13 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
         self.transition()
     }
     
+    // CategoryModelを全件取得する
     func read() {
         categories = CategoryModel.loadAll()
         categoryTable.reloadData()
     }
     
-    // 
+    // 該当のCategoryを削除する
     func deleteModel(index id: Int) {
         try! realm.write {
             realm.delete(categories[id])
