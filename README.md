@@ -45,8 +45,9 @@ CategoryModelのカラムは以下のとおり
  }
 ```
 
-本プロジェクトでは、ToDoModelとCategoryModelそれぞれのクラスに保存するための```create()```と```save()```で保存するデータの作成と作成したデータの保存をそれぞれ行います。
+本プロジェクトでは、ToDoModelとCategoryModelそれぞれのクラスで保存するための```create()```と```save()```で保存するデータの作成と作成したデータの保存をそれぞれ行います。
 
+**ToDoModel.swift**
 ```
 // ToDoModelのcreateとsave
 static func create(content: String, category: CategoryModel, dueDate: NSDate) -> ToDoModel {
@@ -68,6 +69,7 @@ func save() {
 }
 ```
 
+**CategoryModel.swift**
 ```
 // CategoryModelのcreateとsave
 static func create(newCategory text: String) -> CategoryModel {
@@ -88,6 +90,52 @@ func save() {
 ```
 
 ## Read データの取得
+以下のコードでデータベースからデータを取得すします
+
+```
+let realm = try Realm()
+let todos = realm.objects(ToDoModel)
+```
+
+本プロジェクトではToDoModelとCategoryModelそれぞれのクラスでデータを取得するための```loadAll()```で保存するデータ取得をそれぞれ行います。またToDoModelでは、```loadUndone()```でもデータを取得します
+
+**ToDoModel.swift**
+```
+// ToDoModelでのデータを取得するためのメソッド
+static func loadAll() -> [ToDoModel] {
+
+    let todos = realm.objects(ToDoModel).sorted("id", ascending: true)
+    var ret: [ToDoModel] = []
+    for todo in todos {
+        ret.append(todo)
+    }
+    return ret
+}
+
+static func loadUndone() -> [ToDoModel] {
+
+    let todos = realm.objects(ToDoModel).filter("isDone = 0")
+    var ret: [ToDoModel] = []
+    for todo in todos {
+        ret.append(todo)
+    }
+    return ret
+}
+```
+
+**CategoryModel.swift**
+```
+// データを全件取得
+static func loadAll() -> [CategoryModel] {
+
+    let categories = realm.objects(CategoryModel).sorted("id", ascending: true)
+    var array: [CategoryModel] = []
+    for category in categories {
+        array.append(category)
+    }
+    return array
+}
+```
 
 ## Update データの更新
 
