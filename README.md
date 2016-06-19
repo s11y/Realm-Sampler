@@ -175,3 +175,35 @@ static func update(model: CategoryModel, content: String) {
 }
 ```
 ## Delete データの削除
+
+以下のコードでデータベースのデータを削除できます。
+
+```
+
+let realm = try Realm()
+try! realm.write {
+  realm.delete(削除するデータ)
+}   
+```
+
+ToDoModelとCategoryModelでは、それぞれViewControllerとCategoryViewControllerのUITableViewにUITableViewRowActionを追加し、そこで削除しています。
+
+**ViewControllerExtension.swift**
+```
+// ToDoModelの削除。
+let item = self.realm.objects(ToDoModel)[indexPath.row]
+try! self.realm.write {
+    self.realm.delete(item
+    )
+}
+
+```
+**CategoryViewController.swift**
+```
+// CategoryModelの削除。UITableViewRowActionで呼び出すことで削除する。
+func deleteModel(index id: Int) {
+    try! realm.write {
+        realm.delete(categories[id])
+    }
+}
+```
