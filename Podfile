@@ -6,8 +6,7 @@ target 'Realm-Sampler' do
   use_frameworks!
 
   # Pods for Realm-Sampler
-  pod 'RealmSwift'
-
+  pod 'RealmSwift', git: 'git@github.com:realm/realm-cocoa.git', branch: 'master', submodules: true
   target 'Realm-SamplerTests' do
     inherit! :search_paths
     # Pods for testing

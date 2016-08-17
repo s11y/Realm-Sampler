@@ -328,6 +328,7 @@
 				TargetAttributes = {
 					398887591D05B8A200E91C06 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = SLHYE76MHB;
 					};
 					3988876D1D05B8A300E91C06 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -671,10 +672,12 @@
 			baseConfigurationReference = F4C8512D9ABEDEC58CAAB709 /* Pods-Realm-Sampler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SLHYE76MHB;
 				INFOPLIST_FILE = "Realm-Sampler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tv.shinokin.Realm-Sampler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -683,10 +686,12 @@
 			baseConfigurationReference = 97AE14C5BC91A820EBA3D842 /* Pods-Realm-Sampler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SLHYE76MHB;
 				INFOPLIST_FILE = "Realm-Sampler/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "tv.shinokin.Realm-Sampler";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
