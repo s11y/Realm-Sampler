@@ -10,42 +10,42 @@ import UIKit
 
 extension CategoryViewController {
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    }
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CategoryCell") as! CategoryCell
-        
-        cell.categoryLabel.text = categories[indexPath.row].category
-        
-        return cell
-    }
-    
-    // categoryTableのスワイプ処理
-    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    @objc(tableView:editActionsForRowAtIndexPath:) func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // Swipeの時の、Deleteボタン
-        let delete = UITableViewRowAction(style: .Normal, title: "Delete") { (action, index) in
-            self.categories.removeAtIndex(indexPath.row) // 配列から削除
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade) // TableViewから削除
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) in
+            self.categories.remove(at: indexPath.row) // 配列から削除
+            tableView.deleteRows(at: [indexPath as IndexPath], with: .fade) // TableViewから削除
             self.deleteModel(index: indexPath.row) // 該当のデータをデータベースから削除
         }
         
-        delete.backgroundColor = UIColor.redColor()
+        delete.backgroundColor = UIColor.red
         
         // Swipeの時の、Editボタン
-        let edit = UITableViewRowAction(style: .Normal, title: "Edit") { (action, index) in
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, index) in
             self.updatingCategory = self.categories[index.row] // データを保存するための変数に代入
             self.transition() // 画面遷移
         }
         
         return [delete, edit]
+    }
+    
+    @objc(tableView:commitEditingStyle:forRowAtIndexPath:) func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    }
+    
+    @objc(tableView:canEditRowAtIndexPath:) func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    @objc(tableView:cellForRowAtIndexPath:) func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as! CategoryCell
+        
+        cell.categoryLabel.text = categories[indexPath.row].category
+        
+        return cell
     }
 }

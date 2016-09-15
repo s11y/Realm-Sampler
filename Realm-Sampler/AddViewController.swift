@@ -49,10 +49,10 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
         self.setCategoryPicker() // categoryTextFieldにUIPickerViewを設定するためのメソッド -> AddViewExtension
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.readCategory()
-        categoryPicer.selectedRowInComponent(0) // 初期値を設定
+        categoryPicer.selectedRow(inComponent: 0) // 初期値を設定
         self.convertCategory(selectedRow: 0) // 初期値を設定
         self.category = categoryArray[0] // 初期値を設定
         
@@ -74,7 +74,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     // Saveボタンを押したときの処理
     @IBAction func didSelectSave() {
         // それぞれのUITextFieldの中身が空じゃないことを確認
-        guard let date: NSDate = datePicker.date else { return }
+        let date: Date = datePicker.date
         guard let text = textField.text else { return }
         
         if categoryTextField.text?.isEmpty == false {
@@ -95,26 +95,26 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     }
     
     func changedDueDate() {
-        changeLabelDate(datePicker.date)
+        changeLabelDate(date: datePicker.date)
     }
     
     // 該当の日付をdateTextFieldに表示する
-    func changeLabelDate(date: NSDate) {
+    func changeLabelDate(date: Date) {
         dateTextField.text = date.convertDate()
     }
     
     // データを保存するためのメソッド
-    func create(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
+    func create(todo content: String, due_date date: Date, category_id category: CategoryModel) {
         // それぞれのUITextFieldに入っているデータを元に、保存するデータを作成
-        let todo = ToDoModel.create(content, category: category, dueDate: date)
+        let todo = ToDoModel.create(content: content, category: category, dueDate: date)
         // 作成したデータを保存
         todo.save()
     }
     
     // データを更新するためのメソッド
-    func update(todo content: String, due_date date: NSDate, category_id category: CategoryModel) {
+    func update(todo content: String, due_date date: Date, category_id category: CategoryModel) {
         // それぞれのUITextFieldに入っているデータを元に、データを更新
-        ToDoModel.update(updatingTodo, content: content, category: category, dueDate: date)
+        ToDoModel.update(model: updatingTodo, content: content, category: category, dueDate: date)
     }
     
     // 該当する順番のCategoryModelをcategoryTextFieldを表示する
@@ -124,6 +124,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     // 戻る処理
     func transition() {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
     }
 }

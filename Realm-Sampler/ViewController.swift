@@ -28,19 +28,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         todoTable.delegate = self
         todoTable.dataSource = self
         
-        todoTable.registerNib(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
+        todoTable.register(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
         
-        segment.addTarget(self, action: #selector(self.changeSegment(_:)), forControlEvents: .TouchUpInside) // UISegmentControlのtargetを指定
+        segment.addTarget(self, action: #selector(self.changeSegment(_:)), for: .touchUpInside) // UISegmentControlのtargetを指定
+        
         
         // 初回起動時に処理
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.boolForKey("firstLaunch") {
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "firstLaunch") {
             self.registerRealm()
-            defaults.setBool(false, forKey: "firstLaunch") // 処理後 falseをセット
+            defaults.set(false, forKey: "firstLaunch") // 処理後 falseをセット
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.read()
@@ -66,20 +67,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.transition()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAdd" {
             guard let updatingTodo = self.todo else { return }
-            let addView = segue.destinationViewController as! AddViewController
+            let addView = segue.destination as! AddViewController
             addView.updatingTodo = updatingTodo
         }
     }
     
     func transition() {
-        self.performSegueWithIdentifier("toAdd", sender: self)
+        self.performSegue(withIdentifier: "toAdd", sender: self)
     }
     
     // UISegmentControlの選択で、表示するデータの種類を切り替え
-    func changeSegment(segment: UISegmentedControl) {
+    func changeSegment(_ segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:
             todos = ToDoModel.fetch(FetchType: .UnDone)

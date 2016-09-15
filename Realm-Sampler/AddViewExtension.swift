@@ -13,8 +13,8 @@ extension AddViewController {
     // UIDatePickerをdateTextFieldを追加
     func setDatePicker() {
         datePicker = UIDatePicker()
-        datePicker.addTarget(self, action: #selector(self.changedDueDate), forControlEvents: .ValueChanged)
-        datePicker.datePickerMode = UIDatePickerMode.DateAndTime
+        datePicker.addTarget(self, action: #selector(self.changedDueDate), for: .valueChanged)
+        datePicker.datePickerMode = UIDatePickerMode.dateAndTime
         
         dateTextField.inputView = datePicker
     }
@@ -39,11 +39,17 @@ extension AddViewController {
         categoryTextField.resignFirstResponder()
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    @objc(numberOfComponentsInPickerView:) func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+    
+    
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return categoryArray.count
     }
     

@@ -16,7 +16,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     var updatingCategory: CategoryModel! // 更新の際のデータ
     
     var mode: RLMSaveMode = .Create // 更新か作成か
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -24,7 +24,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
         categoryTextField.delegate = self
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // 更新の際に、更新前のカテゴリーをUITextFieldに表示
@@ -32,7 +32,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
             categoryTextField.text = updatingCategory.category
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,7 +40,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     
     // Saveボタンの処理
     @IBAction func didSelectSave() {
-        // 
+        //
         guard let text = categoryTextField.text else { return }
         switch mode {
         case .Create:
@@ -48,7 +48,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
         case .Update:
             self.update(categoryContent: text)
         }
-        self.navigationController?.popViewControllerAnimated(true) 
+        self.navigationController?.popViewController(animated: true)
     }
     
     func create(categoryContent text: String) {
@@ -58,10 +58,10 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     }
     
     func update(categoryContent text: String) {
-            CategoryModel.update(updatingCategory, content: text)
+        CategoryModel.update(model: updatingCategory, content: text)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }

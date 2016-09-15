@@ -22,13 +22,13 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        categoryTable.registerNib(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
+        categoryTable.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
         
         categoryTable.delegate = self
         categoryTable.dataSource = self
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         self.read()
@@ -58,12 +58,12 @@ class CategoryViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func transition() {
-        self.performSegueWithIdentifier("toAddCategory", sender: self)
+        self.performSegue(withIdentifier: "toAddCategory", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddCategory" {
-            let addCategory = segue.destinationViewController as! AddCategoryViewController
+            let addCategory = segue.destination as! AddCategoryViewController
             addCategory.mode = .Update
             addCategory.updatingCategory = self.updatingCategory
         }

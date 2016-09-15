@@ -8,12 +8,12 @@
 
 import UIKit
 
-extension NSDate {
-    // NSDateをString型に変換
+extension Date {
+    // DateをString型に変換
     func convertDate() -> String {
-        let formatter = NSDateFormatter()
-        formatter.locale = NSLocale(localeIdentifier: "ja_JP")
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
 }
