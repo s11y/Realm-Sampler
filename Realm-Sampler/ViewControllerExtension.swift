@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension ViewController {
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
@@ -24,7 +24,7 @@ extension ViewController {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
             tableView.isEditing = false
             // 該当のデータを定数に代入
-            let item = self.realm.allObjects(ofType: ToDoModel.self)[indexPath.row]
+            let item = self.realm.objects(ToDoModel.self)[indexPath.row]
             // 該当のデータをデータベースを削除する
             try! self.realm.write {
                 self.realm.delete(item
@@ -39,9 +39,9 @@ extension ViewController {
         // スワイプでDoneボタンを表示
         let done = UITableViewRowAction(style: .normal, title: "DONE") { (action, indexPath) in
             // 該当のデータを定数に代入
-            let item = self.realm.allObjects(ofType: ToDoModel.self)[indexPath.row]
+            let item = self.realm.objects(ToDoModel.self)[indexPath.row]
             //データベースのデータを更新する
-            try! self.realm.write(block: {
+            try! self.realm.write({
                 item.isDone = 1 // isDoneの値を1に変更
             })
         }
@@ -61,6 +61,7 @@ extension ViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todoTable.dequeueReusableCell(withIdentifier: "todoCell") as! TodoCell
         

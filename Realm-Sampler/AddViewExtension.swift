@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension AddViewController {
+extension AddViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource  {
     // UIDatePickerをdateTextFieldを追加
     func setDatePicker() {
         datePicker = UIDatePicker()
@@ -42,6 +42,7 @@ extension AddViewController {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return categoryArray.count
     }
@@ -49,6 +50,7 @@ extension AddViewController {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categoryArray[row].category
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.convertCategory(selectedRow: row)
         self.category = categoryArray[row]

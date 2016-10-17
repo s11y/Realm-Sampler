@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class CategoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoryViewController: UIViewController {
     
     @IBOutlet var categoryTable: UITableView! // CategoryModelのデータを表示するためのTableView
     

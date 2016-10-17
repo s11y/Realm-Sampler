@@ -15,7 +15,7 @@ enum RLMSaveMode {
     case Update
 }
 
-class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddViewController: UIViewController {
     
     @IBOutlet var textField: UITextField! // ToDoの内容のUITextField
     
@@ -124,6 +124,6 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIPickerViewDele
     
     // 戻る処理
     func transition() {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 }

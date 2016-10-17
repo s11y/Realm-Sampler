@@ -46,7 +46,7 @@ class ToDoModel: Object {
     // Todoの内容を変更し、更新するためのメソッド
     static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: Date) {
         // ローカルのdefault.realmとのtransactionを生成
-        try! realm.write(block: {
+        try! realm.write({
             // それぞれのカラムにデータを入れる
             model.todo = content
             model.category = category
@@ -69,7 +69,7 @@ class ToDoModel: Object {
     // すべてのデータを取得するメソッド
     static func loadAll() -> [ToDoModel] {
         // idでソートしながら、全件取得
-        let todos = realm.allObjects(ofType: ToDoModel.self).sorted(onProperty: "id", ascending: true)
+        let todos = realm.objects(ToDoModel.self).sorted(byProperty: "id", ascending: true)
         // 取得したデータを配列にいれる
         var ret: [ToDoModel] = []
         for todo in todos {
@@ -81,7 +81,7 @@ class ToDoModel: Object {
     // 完了していないToDoを取得するメソッド
     static func loadUndone() -> [ToDoModel] {
         // isDoneが0でフィルターをかけて取得
-        let todos = realm.allObjects(ofType: ToDoModel.self).filter(using: "isDone = 0")
+        let todos = realm.objects(ToDoModel.self).filter("isDone == 0")
         //取得したデータを配列にいれる
         var ret: [ToDoModel] = []
         for todo in todos {
@@ -93,7 +93,7 @@ class ToDoModel: Object {
     static func lastId() -> Int {
         // isDoneの値を変更するとデータベース上の順序が変わるために、以下のようにしてidでソートして最大値を求めて+1して返す
         // 更新の必要がないなら、 realm.objects(ToDoModel).last で最後のデータのidを取得すればよい
-        if let todo = realm.allObjects(ofType: ToDoModel.self).sorted(onProperty: "id", ascending: false).first {
+        if let todo = realm.objects(ToDoModel.self).sorted(byProperty: "id", ascending: false).first {
             return todo.id + 1
         }else {
             return 1
@@ -111,14 +111,14 @@ class ToDoModel: Object {
     
     // TODO: UITableViewRowActionからインスタンスを送れない
     func delete(idOfDelete id: Int)  {
-        let item = ToDoModel.realm.allObjects(ofType: ToDoModel.self)[id]
+        let item = ToDoModel.realm.objects(ToDoModel.self)[id]
         try! ToDoModel.realm.write {
             ToDoModel.realm.delete(item)
         }
     }
     
     func updateDone(idOfUpdate id: Int) {
-        let item = ToDoModel.realm.allObjects(ofType: ToDoModel.self)[id]
+        let item = ToDoModel.realm.objects(ToDoModel.self)[id]
         try! ToDoModel.realm.write {
             item.isDone = 1
         }
