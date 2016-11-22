@@ -38,6 +38,7 @@ class AddViewController: UIViewController {
     var mode: RLMSaveMode = .Create // データの作成か更新か決めるめたのenum
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         categoryTextField.delegate = self
@@ -64,11 +65,6 @@ class AddViewController: UIViewController {
         categoryTextField.text = todo.category?.category
         self.category = todo.category
         mode = .Update // RLMSaveModeをUpdateに設定
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // Saveボタンを押したときの処理

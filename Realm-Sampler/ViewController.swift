@@ -22,8 +22,8 @@ class ViewController: UIViewController {
     var todo: ToDoModel!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         todoTable.delegate = self
         todoTable.dataSource = self
@@ -31,7 +31,6 @@ class ViewController: UIViewController {
         todoTable.register(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
         
         segment.addTarget(self, action: #selector(self.changeSegment(_:)), for: .touchUpInside) // UISegmentControlのtargetを指定
-        
         
         // 初回起動時に処理
         let defaults = UserDefaults.standard
@@ -48,11 +47,6 @@ class ViewController: UIViewController {
         
         todoTable.estimatedRowHeight = 90
         todoTable.rowHeight = UITableViewAutomaticDimension
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // 画面が表示される度に、Realmからデータを全件取得し、表示

@@ -19,7 +19,6 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         categoryTextField.delegate = self
     }
@@ -33,11 +32,6 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // Saveボタンの処理
     @IBAction func didSelectSave() {
         //
@@ -48,7 +42,7 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
         case .Update:
             self.update(categoryContent: text)
         }
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func create(categoryContent text: String) {
