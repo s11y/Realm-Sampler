@@ -34,11 +34,6 @@ class CategoryViewController: UIViewController {
         self.read()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // Addボタンの処理
     @IBAction func didSelectAdd() {
         self.transition()
