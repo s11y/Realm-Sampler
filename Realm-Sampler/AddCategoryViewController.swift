@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class AddCategoryViewController: UIViewController, UITextFieldDelegate{
+class AddCategoryViewController: UIViewController, UITextFieldDelegate { // AddCategoryViewControllerにUITextFieldDelegateを継承
     
     @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
     
@@ -34,27 +34,36 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate{
     
     // Saveボタンの処理
     @IBAction func didSelectSave() {
-        //
+        // categoryTextFieldに文字が記入されているかチェック
         guard let text = categoryTextField.text else { return }
+        
+        // 更新か作成かで呼び出すメソッドを切り替え
         switch mode {
         case .Create:
+            // categoryTextFieldの内容を使って、データを作成
             self.create(categoryContent: text)
         case .Update:
+            // categoryTextFieldの内容を使って、データを更新
             self.update(categoryContent: text)
         }
+        // 画面遷移
         _ = self.navigationController?.popViewController(animated: true)
     }
     
     func create(categoryContent text: String) {
+        // CategoryModelのcreateメソッドを使って保存するためのデータを作成
         let category = CategoryModel.create(newCategory: text)
+        // 作成したデータを保存
         category.save()
         
     }
     
     func update(categoryContent text: String) {
+        // CategoryModelのupdateメソッドを使ってデータを更新
         CategoryModel.update(model: updatingCategory, content: text)
     }
     
+    // Returnキーでキーボードを下げる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
