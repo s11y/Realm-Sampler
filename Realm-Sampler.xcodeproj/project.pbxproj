@@ -141,32 +141,34 @@
 		3922DFBC1D0A08610009BBBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3988879E1D05C4B400E91C06 /* ToDoModel.swift */,
 				394F3DC01D0F101600752948 /* CategoryModel.swift */,
+				3988879E1D05C4B400E91C06 /* ToDoModel.swift */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3922DFBD1D0A08670009BBBA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */,
 				394F3DBC1D0F087700752948 /* AddViewExtension.swift */,
-				394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */,
 				39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */,
+				3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */,
+				394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */,
 			);
 			name = Extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		398887511D05B8A200E91C06 = {
 			isa = PBXGroup;
 			children = (
+				066B53954488C9D6F6217725 /* Frameworks */,
+				1843725F09ADDFF60854C0F4 /* Pods */,
+				3988875B1D05B8A200E91C06 /* Products */,
 				3988875C1D05B8A300E91C06 /* Realm-Sampler */,
 				398887711D05B8A300E91C06 /* Realm-SamplerTests */,
 				3988877C1D05B8A300E91C06 /* Realm-SamplerUITests */,
-				3988875B1D05B8A200E91C06 /* Products */,
-				1843725F09ADDFF60854C0F4 /* Pods */,
-				066B53954488C9D6F6217725 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,15 +185,13 @@
 		3988875C1D05B8A300E91C06 /* Realm-Sampler */ = {
 			isa = PBXGroup;
 			children = (
-				3988875D1D05B8A300E91C06 /* AppDelegate.swift */,
-				39E618E41D05D6D4009ECBC3 /* Controllers */,
-				398887611D05B8A300E91C06 /* Main.storyboard */,
-				398887641D05B8A300E91C06 /* Assets.xcassets */,
-				398887661D05B8A300E91C06 /* LaunchScreen.storyboard */,
-				398887691D05B8A300E91C06 /* Info.plist */,
 				39B10F391D0F20EA00649F1F /* Cell */,
-				3922DFBC1D0A08610009BBBA /* Model */,
+				39E618E41D05D6D4009ECBC3 /* Controllers */,
 				3922DFBD1D0A08670009BBBA /* Extension */,
+				3922DFBC1D0A08610009BBBA /* Model */,
+				39C187001E14132200B70042 /* Resources */,
+				3988875D1D05B8A300E91C06 /* AppDelegate.swift */,
+				398887691D05B8A300E91C06 /* Info.plist */,
 			);
 			path = "Realm-Sampler";
 			sourceTree = "<group>";
@@ -199,8 +199,8 @@
 		398887711D05B8A300E91C06 /* Realm-SamplerTests */ = {
 			isa = PBXGroup;
 			children = (
-				398887721D05B8A300E91C06 /* Realm_SamplerTests.swift */,
 				398887741D05B8A300E91C06 /* Info.plist */,
+				398887721D05B8A300E91C06 /* Realm_SamplerTests.swift */,
 			);
 			path = "Realm-SamplerTests";
 			sourceTree = "<group>";
@@ -208,8 +208,8 @@
 		3988877C1D05B8A300E91C06 /* Realm-SamplerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3988877D1D05B8A300E91C06 /* Realm_SamplerUITests.swift */,
 				3988877F1D05B8A300E91C06 /* Info.plist */,
+				3988877D1D05B8A300E91C06 /* Realm_SamplerUITests.swift */,
 			);
 			path = "Realm-SamplerUITests";
 			sourceTree = "<group>";
@@ -221,6 +221,7 @@
 				3988879A1D05C43A00E91C06 /* TodoCell.xib */,
 			);
 			name = TodoCell;
+			path = TodoCell;
 			sourceTree = "<group>";
 		};
 		39B10F381D0F20DD00649F1F /* CategoryCell */ = {
@@ -230,26 +231,40 @@
 				39B10F351D0F20D600649F1F /* CategoryCell.xib */,
 			);
 			name = CategoryCell;
+			path = CategoryCell;
 			sourceTree = "<group>";
 		};
 		39B10F391D0F20EA00649F1F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				3988879D1D05C44000E91C06 /* TodoCell */,
 				39B10F381D0F20DD00649F1F /* CategoryCell */,
+				3988879D1D05C44000E91C06 /* TodoCell */,
 			);
 			name = Cell;
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		39C187001E14132200B70042 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				398887641D05B8A300E91C06 /* Assets.xcassets */,
+				398887661D05B8A300E91C06 /* LaunchScreen.storyboard */,
+				398887611D05B8A300E91C06 /* Main.storyboard */,
+			);
+			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		39E618E41D05D6D4009ECBC3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3988875F1D05B8A300E91C06 /* ViewController.swift */,
+				39E6705E1D0FECB6000521EB /* AddCategoryViewController.swift */,
 				39E618E21D05D398009ECBC3 /* AddViewController.swift */,
 				39B10F301D0F1F8000649F1F /* CategoryViewController.swift */,
-				39E6705E1D0FECB6000521EB /* AddCategoryViewController.swift */,
+				3988875F1D05B8A300E91C06 /* ViewController.swift */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,6 +602,7 @@
 				398887621D05B8A300E91C06 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		398887661D05B8A300E91C06 /* LaunchScreen.storyboard */ = {
@@ -595,6 +611,7 @@
 				398887671D05B8A300E91C06 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
