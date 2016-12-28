@@ -8,12 +8,7 @@
 
 import UIKit
 
-extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
-    }
+extension CategoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // Swipeの時の、Deleteボタン
@@ -42,11 +37,21 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         return true
     }
     
+
+}
+
+
+extension CategoryViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as! CategoryCell
         
         cell.categoryLabel.text = categories[indexPath.row].category
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
     }
 }

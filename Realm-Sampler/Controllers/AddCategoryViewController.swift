@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class AddCategoryViewController: UIViewController, UITextFieldDelegate { // AddCategoryViewControllerにUITextFieldDelegateを継承
+class AddCategoryViewController: UIViewController { // AddCategoryViewControllerにUITextFieldDelegateを継承
     
     @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
     
@@ -62,6 +62,10 @@ class AddCategoryViewController: UIViewController, UITextFieldDelegate { // AddC
         // CategoryModelのupdateメソッドを使ってデータを更新
         CategoryModel.update(model: updatingCategory, content: text)
     }
+}
+
+
+extension AddCategoryViewController: UITextFieldDelegate {
     
     // Returnキーでキーボードを下げる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

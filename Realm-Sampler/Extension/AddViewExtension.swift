@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension AddViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource  {
+extension AddViewController: UIPickerViewDelegate  {
     // UIDatePickerをdateTextFieldを追加
     func setDatePicker() {
         datePicker = UIDatePicker()
@@ -39,6 +39,19 @@ extension AddViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPicker
         categoryTextField.resignFirstResponder()
     }
     
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.convertCategory(selectedRow: row)
+        self.category = categoryArray[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryArray[row].category
+    }
+}
+
+extension AddViewController: UIPickerViewDataSource {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -46,20 +59,10 @@ extension AddViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return categoryArray.count
     }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryArray[row].category
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.convertCategory(selectedRow: row)
-        self.category = categoryArray[row]
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+}
+
+
+extension AddViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

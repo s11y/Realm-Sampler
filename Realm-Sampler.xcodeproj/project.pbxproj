@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ABB1A11B9DA2EF9FF183C85 /* Pods_Realm_SamplerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7EDF3208D3D3E1AC855E4D /* Pods_Realm_SamplerTests.framework */; };
-		3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */; };
+		3922DFBB1D0A085B0009BBBA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922DFBA1D0A085B0009BBBA /* DateExtension.swift */; };
 		394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBC1D0F087700752948 /* AddViewExtension.swift */; };
 		394F3DBF1D0F0BE800752948 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */; };
 		394F3DC11D0F101600752948 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DC01D0F101600752948 /* CategoryModel.swift */; };
@@ -50,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtension.swift; sourceTree = "<group>"; };
+		3922DFBA1D0A085B0009BBBA /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		394F3DBC1D0F087700752948 /* AddViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewExtension.swift; sourceTree = "<group>"; };
 		394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		394F3DC01D0F101600752948 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
@@ -144,7 +144,6 @@
 				394F3DC01D0F101600752948 /* CategoryModel.swift */,
 				3988879E1D05C4B400E91C06 /* ToDoModel.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -153,10 +152,9 @@
 			children = (
 				394F3DBC1D0F087700752948 /* AddViewExtension.swift */,
 				39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */,
-				3922DFBA1D0A085B0009BBBA /* NSDateExtension.swift */,
+				3922DFBA1D0A085B0009BBBA /* DateExtension.swift */,
 				394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */,
 			);
-			name = Extension;
 			path = Extension;
 			sourceTree = "<group>";
 		};
@@ -220,7 +218,6 @@
 				398887991D05C43A00E91C06 /* TodoCell.swift */,
 				3988879A1D05C43A00E91C06 /* TodoCell.xib */,
 			);
-			name = TodoCell;
 			path = TodoCell;
 			sourceTree = "<group>";
 		};
@@ -230,7 +227,6 @@
 				39B10F341D0F20D600649F1F /* CategoryCell.swift */,
 				39B10F351D0F20D600649F1F /* CategoryCell.xib */,
 			);
-			name = CategoryCell;
 			path = CategoryCell;
 			sourceTree = "<group>";
 		};
@@ -240,7 +236,6 @@
 				39B10F381D0F20DD00649F1F /* CategoryCell */,
 				3988879D1D05C44000E91C06 /* TodoCell */,
 			);
-			name = Cell;
 			path = Cell;
 			sourceTree = "<group>";
 		};
@@ -251,7 +246,6 @@
 				398887661D05B8A300E91C06 /* LaunchScreen.storyboard */,
 				398887611D05B8A300E91C06 /* Main.storyboard */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -263,7 +257,6 @@
 				39B10F301D0F1F8000649F1F /* CategoryViewController.swift */,
 				3988875F1D05B8A300E91C06 /* ViewController.swift */,
 			);
-			name = Controllers;
 			path = Controllers;
 			sourceTree = "<group>";
 		};
@@ -339,7 +332,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ShinokiRyosei;
 				TargetAttributes = {
 					398887591D05B8A200E91C06 = {
@@ -550,7 +543,7 @@
 			files = (
 				39B10F331D0F203C00649F1F /* CategoryViewExtension.swift in Sources */,
 				39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */,
-				3922DFBB1D0A085B0009BBBA /* NSDateExtension.swift in Sources */,
+				3922DFBB1D0A085B0009BBBA /* DateExtension.swift in Sources */,
 				394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */,
 				398887601D05B8A300E91C06 /* ViewController.swift in Sources */,
 				39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */,
@@ -631,8 +624,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -676,8 +671,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -696,6 +693,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -704,6 +702,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F4C8512D9ABEDEC58CAAB709 /* Pods-Realm-Sampler.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SLHYE76MHB;
 				INFOPLIST_FILE = "Realm-Sampler/Info.plist";
@@ -718,6 +717,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97AE14C5BC91A820EBA3D842 /* Pods-Realm-Sampler.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SLHYE76MHB;
 				INFOPLIST_FILE = "Realm-Sampler/Info.plist";
