@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0ABB1A11B9DA2EF9FF183C85 /* Pods_Realm_SamplerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7EDF3208D3D3E1AC855E4D /* Pods_Realm_SamplerTests.framework */; };
 		3922DFBB1D0A085B0009BBBA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922DFBA1D0A085B0009BBBA /* DateExtension.swift */; };
 		394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBC1D0F087700752948 /* AddViewExtension.swift */; };
 		394F3DBF1D0F0BE800752948 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */; };
@@ -33,8 +32,6 @@
 		39F41E9F1E262157002C19B6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F41E9E1E262157002C19B6 /* Reusable.swift */; };
 		39F41EA21E2628A4002C19B6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F41EA01E2628A4002C19B6 /* Realm.framework */; };
 		39F41EA31E2628A4002C19B6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F41EA11E2628A4002C19B6 /* RealmSwift.framework */; };
-		9A2D7912655BA1AFB6257852 /* Pods_Realm_Sampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E392083DB5797719A8C6D275 /* Pods_Realm_Sampler.framework */; };
-		D6F42249C11EEB4C9E4CFBA0 /* Pods_Realm_SamplerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C021097521FF7B865CDD5F /* Pods_Realm_SamplerUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,11 +85,8 @@
 		39F41EA11E2628A4002C19B6 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		400CF6877D62CA17EE250B12 /* Pods-Realm-SamplerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5925BC13DADFA8C0BFBF79C7 /* Pods-Realm-SamplerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8E7EDF3208D3D3E1AC855E4D /* Pods_Realm_SamplerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Realm_SamplerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF87987DAC28D4031C8B9F0 /* Pods-Realm-SamplerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerTests/Pods-Realm-SamplerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97AE14C5BC91A820EBA3D842 /* Pods-Realm-Sampler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-Sampler.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-Sampler/Pods-Realm-Sampler.release.xcconfig"; sourceTree = "<group>"; };
-		E392083DB5797719A8C6D275 /* Pods_Realm_Sampler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Realm_Sampler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6C021097521FF7B865CDD5F /* Pods_Realm_SamplerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Realm_SamplerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2449F70D10FFBB50BDED067 /* Pods-Realm-SamplerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerTests/Pods-Realm-SamplerTests.release.xcconfig"; sourceTree = "<group>"; };
 		F4C8512D9ABEDEC58CAAB709 /* Pods-Realm-Sampler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-Sampler.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-Sampler/Pods-Realm-Sampler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,7 +98,6 @@
 			files = (
 				39F41EA21E2628A4002C19B6 /* Realm.framework in Frameworks */,
 				39F41EA31E2628A4002C19B6 /* RealmSwift.framework in Frameworks */,
-				9A2D7912655BA1AFB6257852 /* Pods_Realm_Sampler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0ABB1A11B9DA2EF9FF183C85 /* Pods_Realm_SamplerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F42249C11EEB4C9E4CFBA0 /* Pods_Realm_SamplerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,9 +123,6 @@
 			children = (
 				39F41EA01E2628A4002C19B6 /* Realm.framework */,
 				39F41EA11E2628A4002C19B6 /* RealmSwift.framework */,
-				E392083DB5797719A8C6D275 /* Pods_Realm_Sampler.framework */,
-				8E7EDF3208D3D3E1AC855E4D /* Pods_Realm_SamplerTests.framework */,
-				E6C021097521FF7B865CDD5F /* Pods_Realm_SamplerUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -292,12 +280,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 398887821D05B8A300E91C06 /* Build configuration list for PBXNativeTarget "Realm-Sampler" */;
 			buildPhases = (
-				C5AA47F51A68BF0405325363 /* [CP] Check Pods Manifest.lock */,
 				398887561D05B8A200E91C06 /* Sources */,
 				398887571D05B8A200E91C06 /* Frameworks */,
 				398887581D05B8A200E91C06 /* Resources */,
-				803DDBC8787DFE3117600513 /* [CP] Embed Pods Frameworks */,
-				DA8511B5AE33524AEC9AF39B /* [CP] Copy Pods Resources */,
 				39F41EA41E2628A9002C19B6 /* ShellScript */,
 			);
 			buildRules = (
@@ -485,21 +470,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		803DDBC8787DFE3117600513 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Realm-Sampler/Pods-Realm-Sampler-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		94F23A4D6064B3EEC5335F53 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,36 +498,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Realm-SamplerTests/Pods-Realm-SamplerTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5AA47F51A68BF0405325363 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		DA8511B5AE33524AEC9AF39B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Realm-Sampler/Pods-Realm-Sampler-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FCEEFD2911BE4BFB7D5202AE /* [CP] Copy Pods Resources */ = {
