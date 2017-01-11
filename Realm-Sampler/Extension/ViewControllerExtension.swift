@@ -67,7 +67,8 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = todoTable.dequeueReusableCell(withIdentifier: "todoCell") as! TodoCell
+        
+        let cell: TodoCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         
         let item = todos[indexPath.row]
         cell.duedateLabel.text = item.due_date.convertDate()

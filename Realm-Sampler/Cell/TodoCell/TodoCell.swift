@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoCell: UITableViewCell {
+class TodoCell: UITableViewCell, Reusable, NibLoadble {
     
     @IBOutlet var todoLabel: UILabel!
     

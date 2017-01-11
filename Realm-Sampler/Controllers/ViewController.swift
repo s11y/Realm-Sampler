@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         todoTable.delegate = self
         todoTable.dataSource = self
         
-        todoTable.register(UINib(nibName: "TodoCell", bundle: nil), forCellReuseIdentifier: "todoCell")
+        todoTable.register(TodoCell.self)
         
         segment.addTarget(self, action: #selector(self.changeSegment(_:)), for: .touchUpInside) // UISegmentControlのtargetを指定
         

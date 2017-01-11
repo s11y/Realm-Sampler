@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoryCell: UITableViewCell {
+class CategoryCell: UITableViewCell, Reusable, NibLoadble {
     
     @IBOutlet var categoryLabel: UILabel!
 

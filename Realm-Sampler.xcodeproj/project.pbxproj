@@ -28,6 +28,9 @@
 		39B10F371D0F20D600649F1F /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B10F351D0F20D600649F1F /* CategoryCell.xib */; };
 		39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E618E21D05D398009ECBC3 /* AddViewController.swift */; };
 		39E6705F1D0FECB6000521EB /* AddCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E6705E1D0FECB6000521EB /* AddCategoryViewController.swift */; };
+		39F41E9A1E262087002C19B6 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F41E991E262087002C19B6 /* NibLoadable.swift */; };
+		39F41E9D1E262134002C19B6 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F41E9C1E262134002C19B6 /* UITableView+Extension.swift */; };
+		39F41E9F1E262157002C19B6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F41E9E1E262157002C19B6 /* Reusable.swift */; };
 		9A2D7912655BA1AFB6257852 /* Pods_Realm_Sampler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E392083DB5797719A8C6D275 /* Pods_Realm_Sampler.framework */; };
 		D6F42249C11EEB4C9E4CFBA0 /* Pods_Realm_SamplerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6C021097521FF7B865CDD5F /* Pods_Realm_SamplerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +79,9 @@
 		39B10F351D0F20D600649F1F /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		39E618E21D05D398009ECBC3 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		39E6705E1D0FECB6000521EB /* AddCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCategoryViewController.swift; sourceTree = "<group>"; };
+		39F41E991E262087002C19B6 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NibLoadable.swift; path = Protocols/NibLoadable.swift; sourceTree = "<group>"; };
+		39F41E9C1E262134002C19B6 /* UITableView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		39F41E9E1E262157002C19B6 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reusable.swift; path = Protocols/Reusable.swift; sourceTree = "<group>"; };
 		400CF6877D62CA17EE250B12 /* Pods-Realm-SamplerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5925BC13DADFA8C0BFBF79C7 /* Pods-Realm-SamplerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Realm-SamplerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Realm-SamplerUITests/Pods-Realm-SamplerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8E7EDF3208D3D3E1AC855E4D /* Pods_Realm_SamplerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Realm_SamplerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +156,7 @@
 		3922DFBD1D0A08670009BBBA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				39F41E9C1E262134002C19B6 /* UITableView+Extension.swift */,
 				394F3DBC1D0F087700752948 /* AddViewExtension.swift */,
 				39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */,
 				3922DFBA1D0A085B0009BBBA /* DateExtension.swift */,
@@ -188,6 +195,7 @@
 				3922DFBD1D0A08670009BBBA /* Extension */,
 				3922DFBC1D0A08610009BBBA /* Model */,
 				39C187001E14132200B70042 /* Resources */,
+				39F41E9B1E26208C002C19B6 /* Protocols */,
 				3988875D1D05B8A300E91C06 /* AppDelegate.swift */,
 				398887691D05B8A300E91C06 /* Info.plist */,
 			);
@@ -258,6 +266,15 @@
 				3988875F1D05B8A300E91C06 /* ViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		39F41E9B1E26208C002C19B6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				39F41E991E262087002C19B6 /* NibLoadable.swift */,
+				39F41E9E1E262157002C19B6 /* Reusable.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -543,6 +560,7 @@
 			files = (
 				39B10F331D0F203C00649F1F /* CategoryViewExtension.swift in Sources */,
 				39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */,
+				39F41E9D1E262134002C19B6 /* UITableView+Extension.swift in Sources */,
 				3922DFBB1D0A085B0009BBBA /* DateExtension.swift in Sources */,
 				394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */,
 				398887601D05B8A300E91C06 /* ViewController.swift in Sources */,
@@ -550,7 +568,9 @@
 				39E6705F1D0FECB6000521EB /* AddCategoryViewController.swift in Sources */,
 				394F3DBF1D0F0BE800752948 /* ViewControllerExtension.swift in Sources */,
 				3988879B1D05C43A00E91C06 /* TodoCell.swift in Sources */,
+				39F41E9A1E262087002C19B6 /* NibLoadable.swift in Sources */,
 				3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */,
+				39F41E9F1E262157002C19B6 /* Reusable.swift in Sources */,
 				394F3DC11D0F101600752948 /* CategoryModel.swift in Sources */,
 				3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */,
 				39B10F361D0F20D600649F1F /* CategoryCell.swift in Sources */,

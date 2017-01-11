@@ -44,7 +44,7 @@ extension CategoryViewController: UITableViewDelegate {
 extension CategoryViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as! CategoryCell
+        let cell: CategoryCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         
         cell.categoryLabel.text = categories[indexPath.row].category
         

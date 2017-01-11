@@ -22,7 +22,7 @@ class CategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        categoryTable.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
+        categoryTable.register(CategoryCell.self)
         
         categoryTable.delegate = self
         categoryTable.dataSource = self
