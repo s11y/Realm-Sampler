@@ -47,7 +47,7 @@ class CategoryModel: Object {
     // idを取得するためのメソッド
     static func lastId() -> Int {
         // idの最大値を取得してから、+1して返す
-        if let category = realm.objects(CategoryModel.self).sorted(byProperty: "id", ascending: false).first {
+        if let category = realm.objects(CategoryModel.self).sorted(byKeyPath: "id", ascending: false).first {
             return category.id + 1
         }else {
             return 1
@@ -66,7 +66,7 @@ class CategoryModel: Object {
     // データを全件取得
     static func loadAll() -> [CategoryModel] {
         // idでソートして全件取得
-        let categories = realm.objects(CategoryModel.self).sorted(byProperty: "id", ascending: true)
+        let categories = realm.objects(CategoryModel.self).sorted(byKeyPath: "id", ascending: true)
         // 取得したデータを配列に入れる
         var array: [CategoryModel] = []
         for category in categories {

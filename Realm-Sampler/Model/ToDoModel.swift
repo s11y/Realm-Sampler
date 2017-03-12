@@ -69,7 +69,7 @@ class ToDoModel: Object {
     // すべてのデータを取得するメソッド
     static func loadAll() -> [ToDoModel] {
         // idでソートしながら、全件取得
-        let todos = realm.objects(ToDoModel.self).sorted(byProperty: "id", ascending: true)
+        let todos = realm.objects(ToDoModel.self).sorted(byKeyPath: "id", ascending: true)
         // 取得したデータを配列にいれる
         var ret: [ToDoModel] = []
         for todo in todos {
@@ -93,7 +93,7 @@ class ToDoModel: Object {
     static func lastId() -> Int {
         // isDoneの値を変更するとデータベース上の順序が変わるために、以下のようにしてidでソートして最大値を求めて+1して返す
         // 更新の必要がないなら、 realm.objects(ToDoModel).last で最後のデータのidを取得すればよい
-        if let todo = realm.objects(ToDoModel.self).sorted(byProperty: "id", ascending: false).first {
+        if let todo = realm.objects(ToDoModel.self).sorted(byKeyPath: "id", ascending: false).first {
             return todo.id + 1
         }else {
             return 1

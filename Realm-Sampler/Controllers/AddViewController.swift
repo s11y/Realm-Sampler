@@ -16,6 +16,8 @@ enum RLMSaveMode {
 }
 
 class AddViewController: UIViewController {
+
+    let realm = try! Realm()
     
     @IBOutlet var textField: UITextField! // ToDoの内容のUITextField
     
