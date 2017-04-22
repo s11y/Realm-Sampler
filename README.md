@@ -33,7 +33,7 @@ CategoryModelのカラムは以下のとおり
 
 ## Create データの作成
 以下のコードでデータベースにデータを作成できます
-```
+```swift
  // 保存するためのデータを作成する。今回はToDoModel
  let todo = ToDoModel()
  todo.todo = "hoge"
@@ -48,7 +48,7 @@ CategoryModelのカラムは以下のとおり
 本プロジェクトでは、ToDoModelとCategoryModelそれぞれのクラスで保存するための```create()```と```save()```で保存するデータの作成と作成したデータの保存をそれぞれ行います。
 
 **ToDoModel.swift**
-```
+```swift
 // ToDoModelのcreateとsave
 static func create(content: String, category: CategoryModel, dueDate: NSDate) -> ToDoModel {
 
@@ -70,7 +70,7 @@ func save() {
 ```
 
 **CategoryModel.swift**
-```
+```swift
 // CategoryModelのcreateとsave
 static func create(newCategory text: String) -> CategoryModel {
 
@@ -92,7 +92,7 @@ func save() {
 ## Read データの取得
 以下のコードでデータベースからデータを取得します
 
-```
+```swift
 let realm = try Realm()
 let todos = realm.objects(ToDoModel)
 ```
@@ -100,7 +100,7 @@ let todos = realm.objects(ToDoModel)
 本プロジェクトではToDoModelとCategoryModelそれぞれのクラスでデータを取得するための```loadAll()```で保存するデータ取得をそれぞれ行います。またToDoModelでは、```loadUndone()```でもデータを取得します
 
 **ToDoModel.swift**
-```
+```swift
 // ToDoModelでのデータを取得するためのメソッド
 static func loadAll() -> [ToDoModel] {
 
@@ -124,7 +124,7 @@ static func loadUndone() -> [ToDoModel] {
 ```
 
 **CategoryModel.swift**
-```
+```swift
 // データを全件取得
 static func loadAll() -> [CategoryModel] {
 
@@ -140,7 +140,7 @@ static func loadAll() -> [CategoryModel] {
 ## Update データの更新
 以下のコードでデータベースにデータの更新を行えます。
 
-```
+```swift
 let realm = try Realm()
 try realm.write {
   // ここで変更を行う
@@ -150,7 +150,7 @@ try realm.write {
 本プロジェクトでは、ToDoModelとCategoryModelではそれぞれで更新するための```update()```でデータの更新を行います。
 
 **ToDoModel.swift**
-```
+```swift
 // ToDoModelのupdate
 static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: NSDate) {
 
@@ -165,7 +165,7 @@ static func update(model: ToDoModel,content: String, category: CategoryModel, du
 ```
 
 **CategoryModel.swift**
-```
+```swift
 // CategoryModelのupdate
 static func update(model: CategoryModel, content: String) {
 
@@ -178,8 +178,7 @@ static func update(model: CategoryModel, content: String) {
 
 以下のコードでデータベースのデータを削除できます。
 
-```
-
+```swift
 let realm = try Realm()
 try! realm.write {
   realm.delete(削除するデータ)
@@ -189,7 +188,7 @@ try! realm.write {
 ToDoModelとCategoryModelでは、それぞれViewControllerとCategoryViewControllerのUITableViewにUITableViewRowActionを追加し、そこで削除しています。
 
 **ViewControllerExtension.swift**
-```
+```swift
 // ToDoModelの削除。
 let item = self.realm.objects(ToDoModel)[indexPath.row]
 try! self.realm.write {
@@ -199,7 +198,7 @@ try! self.realm.write {
 
 ```
 **CategoryViewController.swift**
-```
+```swift
 // CategoryModelの削除。UITableViewRowActionで呼び出すことで削除する。
 func deleteModel(index id: Int) {
     try! realm.write {
