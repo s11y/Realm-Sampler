@@ -77,9 +77,9 @@ class ViewController: UIViewController {
     func changeSegment(_ segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:
-            todos = ToDoModel.fetch(FetchType: .UnDone)
+            todos = ToDoModel.fetch(FetchType: .undone)
         case 1:
-            todos = ToDoModel.fetch(FetchType: .All)
+            todos = ToDoModel.fetch(FetchType: .all)
         default:
             break
         }

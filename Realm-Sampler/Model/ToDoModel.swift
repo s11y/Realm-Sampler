@@ -10,8 +10,8 @@ import UIKit
 import RealmSwift
 
 public enum FetchType { // 取得するデータを決めるためのenum
-    case All // すべてのToDoを取得するためのenum
-    case UnDone // 完了していないToDoを取得するためのenum
+    case all // すべてのToDoを取得するためのenum
+    case undone // 完了していないToDoを取得するためのenum
 }
 
 class ToDoModel: Object {
@@ -46,22 +46,22 @@ class ToDoModel: Object {
     // Todoの内容を変更し、更新するためのメソッド
     static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: Date) {
         // ローカルのdefault.realmとのtransactionを生成
-        try! realm.write({
+        try! realm.write{
             // それぞれのカラムにデータを入れる
             model.todo = content
             model.category = category
             model.due_date = dueDate
             model.isDone = 0
-        })
+        }
     }
     
     // FetchTypeで呼び出すメソッドを変更
     static func fetch(FetchType type: FetchType) -> [ToDoModel] {
         // .Allなら全件、.UnDoneなら未完了のデータを取得する
         switch type {
-        case .All:
+        case .all:
             return loadAll()
-        case .UnDone:
+        case .undone:
             return loadUndone()
         }
     }

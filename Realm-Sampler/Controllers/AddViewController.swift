@@ -10,9 +10,9 @@ import UIKit
 import RealmSwift
 
 // データを保存するのか更新するのか
-enum RLMSaveMode {
-    case Create
-    case Update
+enum SaveType {
+    case create
+    case update
 }
 
 class AddViewController: UIViewController {
@@ -37,7 +37,7 @@ class AddViewController: UIViewController {
     
     var updatingTodo: ToDoModel! // 更新する際の元のデータとしてのCategoryModel
     
-    var mode: RLMSaveMode = .Create // データの作成か更新か決めるめたのenum
+    var mode: SaveType = .create // データの作成か更新か決めるめたのenum
     
     override func viewDidLoad() {
         
@@ -59,14 +59,14 @@ class AddViewController: UIViewController {
         self.convertCategory(selectedRow: 0) // 初期値を設定
         self.category = categoryArray[0] // 初期値を設定
         
-        // RLMSaveModeがUpdateの時のみ、処理
+        // SaveTyopeがpdateの時のみ、処理
         guard let todo = self.updatingTodo else { return }
         // 更新前のデータを、それぞれのUITextFieldに表示
         textField.text = todo.todo
         dateTextField.text = todo.due_date.convertDate()
         categoryTextField.text = todo.category?.category
         self.category = todo.category
-        mode = .Update // RLMSaveModeをUpdateに設定
+        mode = .update // SaveTypeをupdateに設定
     }
     
     // Saveボタンを押したときの処理
@@ -76,11 +76,11 @@ class AddViewController: UIViewController {
         guard let text = textField.text else { return }
         
         if categoryTextField.text?.isEmpty == false {
-            // RLMSaveModeで保存か更新かを切り替え
+            // SaveTypeで保存か更新かを切り替え
             switch mode {
-            case .Create:
+            case .create:
                 self.create(todo: text, due_date: date, category_id: self.category) // 保存するためのメソッドにデータを渡す
-            case .Update:
+            case .update:
                 self.update(todo: text, due_date: date, category_id: self.category) // 更新するためのメソッドにデータを渡す
             }
             self.transition()

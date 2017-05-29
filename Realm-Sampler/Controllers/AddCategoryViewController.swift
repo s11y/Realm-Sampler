@@ -15,7 +15,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
     
     var updatingCategory: CategoryModel! // 更新の際のデータ
     
-    var mode: RLMSaveMode = .Create // 更新か作成か
+    var mode: SaveType = .create // 更新か作成か
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         super.viewWillAppear(animated)
         
         // 更新の際に、更新前のカテゴリーをUITextFieldに表示
-        if mode == .Update {
+        if mode == .update {
             categoryTextField.text = updatingCategory.category
         }
     }
@@ -39,10 +39,10 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         
         // 更新か作成かで呼び出すメソッドを切り替え
         switch mode {
-        case .Create:
+        case .create:
             // categoryTextFieldの内容を使って、データを作成
             self.create(categoryContent: text)
-        case .Update:
+        case .update:
             // categoryTextFieldの内容を使って、データを更新
             self.update(categoryContent: text)
         }
