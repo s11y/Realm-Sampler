@@ -47,7 +47,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
             self.update(categoryContent: text)
         }
         // 画面遷移
-        _ = self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func create(categoryContent text: String) {

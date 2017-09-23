@@ -122,6 +122,6 @@ class AddViewController: UIViewController {
     
     // 戻る処理
     func transition() {
-        _ = self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
