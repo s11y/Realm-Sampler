@@ -34,7 +34,7 @@ extension AddViewController: UIPickerViewDelegate  {
     }
     
     // 画面を触った時に、キーボードを下げる
-    func didSelectTapGesture() {
+    @objc func didSelectTapGesture() {
         dateTextField.resignFirstResponder()
         categoryTextField.resignFirstResponder()
     }

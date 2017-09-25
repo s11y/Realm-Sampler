@@ -14,8 +14,9 @@ class CategoryModel: Object {
     
     static let realm = try! Realm()
     
-    dynamic private var id: Int = 0 // CategoryModelのid
-    dynamic var category: String = "" // Categoryの内容
+    @objc dynamic private var id: Int = 0 // CategoryModelのid
+    @objc dynamic var category: String = "" // Categoryの内容
+
     
     let todoModel = List<ToDoModel>()
     
@@ -23,18 +24,14 @@ class CategoryModel: Object {
     override static func primaryKey() -> String {
         return "id"
     }
-    
-    // 新しいCategoryのデータを作成するためのメソッド
-    static func create(newCategory text: String) -> CategoryModel {
-        // インスタンスを生成
-        let category = CategoryModel()
-        // それぞれにデータをいれる
-        category.id = lastId()
-        category.category = text
-        
-        return category
+
+    // initでインスタンスを作成
+    convenience init(newCategory text: String) {
+        self.init()
+        self.id = CategoryModel.lastId()
+        self.category = text
     }
-    
+
     // データを更新するためのメソッド
     static func update(model: CategoryModel, content: String) {
         // ローカルのdefault.realmとのtransactionを生成
@@ -57,9 +54,10 @@ class CategoryModel: Object {
     // 作成したデータを保存するためのメソッド
     func save() {
         // ローカルのdefault.realmとのtransactionを生成
-        try! CategoryModel.realm.write{
+        let realm = try! Realm()
+        try! realm.write{
             // データを追加
-            CategoryModel.realm.add(self)
+            realm.add(self)
         }
     }
     

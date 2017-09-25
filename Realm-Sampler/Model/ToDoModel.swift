@@ -18,30 +18,27 @@ class ToDoModel: Object {
     
     static let realm = try! Realm()
     
-    dynamic private var id: Int = 0 // データのID
-    dynamic var todo: String = "" //ToDoの内容
-    dynamic var category: CategoryModel? //ToDoのカテゴリー
-    dynamic var due_date: Date! // ToDoの期限
-    dynamic var isDone: Int = 0 // ToDoが完了しているか。0なら未完了、1なら完了
+    @objc dynamic private var id: Int = 0 // データのID
+    @objc dynamic var todo: String = "" //ToDoの内容
+    @objc dynamic var category: CategoryModel? //ToDoのカテゴリー
+    @objc dynamic var due_date: Date! // ToDoの期限
+    @objc dynamic var isDone: Int = 0 // ToDoが完了しているか。0なら未完了、1なら完了
     
     // idをプライマリーキーに設定
     override static func primaryKey() -> String {
         return "id"
     }
-    
-    // ToDoの内容を決め、保存するためデータを作成するためのメソッド
-    static func create(content: String, category: CategoryModel, dueDate: Date) -> ToDoModel {
-        // インスタンスを生成
-        let todo = ToDoModel()
-        // それぞれの項目にデータを入れる
-        todo.todo = content
-        todo.category = category
-        todo.due_date = dueDate
-        todo.isDone = 0
-        todo.id = lastId()
-        
-        return todo
+
+    // initでインスタンスを作成
+    convenience init(content: String, category: CategoryModel, dueDate: Date) {
+        self.init()
+        self.todo = content
+        self.category = category
+        self.due_date = dueDate
+        self.isDone = 0
+        self.id = ToDoModel.lastId()
     }
+
     
     // Todoの内容を変更し、更新するためのメソッド
     static func update(model: ToDoModel,content: String, category: CategoryModel, dueDate: Date) {
@@ -103,9 +100,10 @@ class ToDoModel: Object {
     // ローカルのdefault.realmに作成したデータを保存するメソッド
     func save() {
         // writeでtransactionを生む
-        try! ToDoModel.realm.write {
+        let realm = try! Realm()
+        try! realm.write {
             // モデルを保存
-            ToDoModel.realm.add(self)
+            realm.add(self)
         }
     }
     

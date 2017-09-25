@@ -74,7 +74,7 @@ class ViewController: UIViewController {
     }
     
     // UISegmentControlの選択で、表示するデータの種類を切り替え
-    func changeSegment(_ segment: UISegmentedControl) {
+    @objc func changeSegment(_ segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:
             todos = ToDoModel.fetch(FetchType: .undone)
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
     func registerRealm() {
         let categories = ["家事", "勉強", "仕事"]
         for i in categories {
-            let category = CategoryModel.create(newCategory: i)
+            let category = CategoryModel(newCategory: i)
             category.save()
         }
     }

@@ -52,7 +52,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
     
     func create(categoryContent text: String) {
         // CategoryModelのcreateメソッドを使って保存するためのデータを作成
-        let category = CategoryModel.create(newCategory: text)
+        let category = CategoryModel(newCategory: text)
         // 作成したデータを保存
         category.save()
         

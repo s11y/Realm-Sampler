@@ -92,7 +92,7 @@ class AddViewController: UIViewController {
         categoryArray = CategoryModel.loadAll()
     }
     
-    func changedDueDate() {
+    @objc func changedDueDate() {
         changeLabelDate(date: datePicker.date)
     }
     
@@ -104,7 +104,7 @@ class AddViewController: UIViewController {
     // データを保存するためのメソッド
     func create(todo content: String, due_date date: Date, category_id category: CategoryModel) {
         // それぞれのUITextFieldに入っているデータを元に、保存するデータを作成
-        let todo = ToDoModel.create(content: content, category: category, dueDate: date)
+        let todo = ToDoModel(content: content, category: category, dueDate: date)
         // 作成したデータを保存
         todo.save()
     }
