@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         self.read()
         
         todoTable.estimatedRowHeight = 90
-        todoTable.rowHeight = UITableViewAutomaticDimension
+        todoTable.rowHeight = UITableView.automaticDimension
     }
     
     // 画面が表示される度に、Realmからデータを全件取得し、表示

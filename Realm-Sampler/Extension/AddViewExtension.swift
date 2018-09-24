@@ -14,7 +14,7 @@ extension AddViewController: UIPickerViewDelegate  {
     func setDatePicker() {
         datePicker = UIDatePicker()
         datePicker.addTarget(self, action: #selector(self.changedDueDate), for: .valueChanged)
-        datePicker.datePickerMode = UIDatePickerMode.dateAndTime
+        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
         
         dateTextField.inputView = datePicker
     }

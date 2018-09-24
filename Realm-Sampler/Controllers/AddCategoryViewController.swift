@@ -13,7 +13,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
     
     @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
     
-    var updatingCategory: CategoryModel! // 更新の際のデータ
+    var updatingCategory: CategoryModel? // 更新の際のデータ
     
     var mode: SaveType = .create // 更新か作成か
     
@@ -28,7 +28,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         
         // 更新の際に、更新前のカテゴリーをUITextFieldに表示
         if mode == .update {
-            categoryTextField.text = updatingCategory.category
+            categoryTextField.text = updatingCategory?.category
         }
     }
     
@@ -60,7 +60,8 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
     
     func update(categoryContent text: String) {
         // CategoryModelのupdateメソッドを使ってデータを更新
-        CategoryModel.update(model: updatingCategory, content: text)
+        guard let category = updatingCategory else { return }
+        CategoryModel.update(model: category, content: text)
     }
 }
 
