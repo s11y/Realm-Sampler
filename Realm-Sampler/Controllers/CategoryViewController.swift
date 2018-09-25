@@ -59,8 +59,7 @@ class CategoryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddCategory" {
             let addCategory = segue.destination as! AddCategoryViewController
-            addCategory.mode = .update
-            addCategory.updatingCategory = self.updatingCategory
+            addCategory.mode = .update(category: updatingCategory)
         }
     }
 }

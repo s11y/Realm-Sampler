@@ -10,6 +10,12 @@ import UIKit
 import RealmSwift
 
 class AddCategoryViewController: UIViewController { // AddCategoryViewControllerにUITextFieldDelegateを継承
+
+    enum SaveType {
+
+        case create
+        case update(category: CategoryModel)
+    }
     
     @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
     
@@ -27,8 +33,11 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         super.viewWillAppear(animated)
         
         // 更新の際に、更新前のカテゴリーをUITextFieldに表示
-        if mode == .update {
-            categoryTextField.text = updatingCategory?.category
+        switch mode {
+        case .update(let category):
+            categoryTextField.text = category.category
+        default:
+            break
         }
     }
     

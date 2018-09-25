@@ -63,9 +63,9 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAdd" {
-            guard let updatingTodo = self.todo else { return }
-            let addView = segue.destination as! AddViewController
-            addView.updatingTodo = updatingTodo
+            guard let todo = self.todo else { return }
+            let addViewController = segue.destination as! AddViewController
+            addViewController.mode = .update(todo: todo)
         }
     }
     

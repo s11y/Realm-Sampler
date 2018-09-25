@@ -9,21 +9,39 @@
 import UIKit
 import RealmSwift
 
-// データを保存するのか更新するのか
-enum SaveType {
-    case create
-    case update
-}
-
 class AddViewController: UIViewController {
 
+    // データを保存するのか更新するのか
+    enum SaveType {
+        case create
+        case update(todo: ToDoModel)
+    }
+
     let realm = try! Realm()
-    
-    @IBOutlet var textField: UITextField! // ToDoの内容のUITextField
-    
-    @IBOutlet var dateTextField: UITextField! // ToDoの期限を決めるためのUITextField
-    
-    @IBOutlet var categoryTextField: UITextField! // ToDoのカテゴリーを決めるためのUITextField
+
+    // ToDoの内容のUITextField
+    @IBOutlet var textField: UITextField! {
+
+        didSet {
+            textField.delegate = self
+        }
+    }
+
+    // ToDoの期限を決めるためのUITextField
+    @IBOutlet var dateTextField: UITextField! {
+
+        didSet {
+            dateTextField.delegate = self
+        }
+    }
+
+    // ToDoのカテゴリーを決めるためのUITextField
+    @IBOutlet var categoryTextField: UITextField! {
+
+        didSet {
+            categoryTextField.delegate = self
+        }
+    }
     
     @IBOutlet var gestureRecognizer: UITapGestureRecognizer! // 画面を触った時にキーボードを下げる
     
@@ -34,39 +52,37 @@ class AddViewController: UIViewController {
     var categoryArray: [CategoryModel] = [] // UIPickerViewで表示するためのカテゴリーの配列
     
     var category: CategoryModel! // 保存するためのCategoryModelの変数
-    
-    var updatingTodo: ToDoModel! // 更新する際の元のデータとしてのCategoryModel
-    
-    var mode: SaveType = .create // データの作成か更新か決めるめたのenum
+
+    // データの作成か更新か決めるめたのenum
+    var mode: SaveType = .create
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        categoryTextField.delegate = self
-        dateTextField.delegate = self
-        textField.delegate = self
-        
-        self.setDatePicker() // datetextFieldにUIDatePickerを設定するためのメソッド -> AddViewExtension
-        self.setGestureSeletor() // gestureRecognizerの処理先を指定 -> AddViewExtension
-        self.setCategoryPicker() // categoryTextFieldにUIPickerViewを設定するためのメソッド -> AddViewExtension
+
+        self.setDatePicker() // datetextFieldにUIDatePickerを設定するためのメソッド
+        self.setGestureSeletor() // gestureRecognizerの処理先を指定
+        self.setCategoryPicker() // categoryTextFieldにUIPickerViewを設定するためのメソッド
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.readCategory()
-        categoryPicer.selectedRow(inComponent: 0) // 初期値を設定
-        self.convertCategory(selectedRow: 0) // 初期値を設定
-        self.category = categoryArray[0] // 初期値を設定
-        
-        // SaveTyopeがpdateの時のみ、処理
-        guard let todo = self.updatingTodo else { return }
-        // 更新前のデータを、それぞれのUITextFieldに表示
-        textField.text = todo.todo
-        dateTextField.text = todo.due_date.convertDate()
-        categoryTextField.text = todo.category?.category
-        self.category = todo.category
-        mode = .update // SaveTypeをupdateに設定
+        categoryArray = CategoryModel.loadAll()
+
+        switch mode {
+        case .update(let todo):
+            // 更新前のデータを、それぞれのUITextFieldに表示
+            textField.text = todo.todo
+            dateTextField.text = todo.due_date.convertDate()
+            categoryTextField.text = todo.category?.category
+            self.category = todo.category
+
+        default:
+            categoryPicer.selectedRow(inComponent: 0) // 初期値を設定
+            self.convertCategory(selectedRow: 0) // 初期値を設定
+            self.category = categoryArray[0] // 初期値を設定
+        }
+
     }
     
     // Saveボタンを押したときの処理
@@ -80,16 +96,11 @@ class AddViewController: UIViewController {
             switch mode {
             case .create:
                 self.create(todo: text, due_date: date, category_id: self.category) // 保存するためのメソッドにデータを渡す
-            case .update:
-                self.update(todo: text, due_date: date, category_id: self.category) // 更新するためのメソッドにデータを渡す
+            case .update(let todo):
+                ToDoModel.update(model: todo, content: text, category: category, dueDate: date)
             }
             self.transition()
         }
-    }
-    
-    // カテゴリーを全件取得
-    func readCategory() {
-        categoryArray = CategoryModel.loadAll()
     }
     
     @objc func changedDueDate() {
@@ -107,12 +118,6 @@ class AddViewController: UIViewController {
         let todo = ToDoModel(content: content, category: category, dueDate: date)
         // 作成したデータを保存
         todo.save()
-    }
-    
-    // データを更新するためのメソッド
-    func update(todo content: String, due_date date: Date, category_id category: CategoryModel) {
-        // それぞれのUITextFieldに入っているデータを元に、データを更新
-        ToDoModel.update(model: updatingTodo, content: content, category: category, dueDate: date)
     }
     
     // 該当する順番のCategoryModelをcategoryTextFieldを表示する
