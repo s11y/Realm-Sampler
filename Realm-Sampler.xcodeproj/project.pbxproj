@@ -20,7 +20,6 @@
 		3988879C1D05C43A00E91C06 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3988879A1D05C43A00E91C06 /* TodoCell.xib */; };
 		3988879F1D05C4B400E91C06 /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988879E1D05C4B400E91C06 /* ToDoModel.swift */; };
 		39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F301D0F1F8000649F1F /* CategoryViewController.swift */; };
-		39B10F331D0F203C00649F1F /* CategoryViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */; };
 		39B10F361D0F20D600649F1F /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B10F341D0F20D600649F1F /* CategoryCell.swift */; };
 		39B10F371D0F20D600649F1F /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B10F351D0F20D600649F1F /* CategoryCell.xib */; };
 		39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E618E21D05D398009ECBC3 /* AddViewController.swift */; };
@@ -48,7 +47,6 @@
 		3988879A1D05C43A00E91C06 /* TodoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		3988879E1D05C4B400E91C06 /* ToDoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
 		39B10F301D0F1F8000649F1F /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewExtension.swift; sourceTree = "<group>"; };
 		39B10F341D0F20D600649F1F /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		39B10F351D0F20D600649F1F /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		39E618E21D05D398009ECBC3 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			children = (
 				39F41E9C1E262134002C19B6 /* UITableView+Extension.swift */,
 				394F3DBC1D0F087700752948 /* AddViewExtension.swift */,
-				39B10F321D0F203C00649F1F /* CategoryViewExtension.swift */,
 				3922DFBA1D0A085B0009BBBA /* DateExtension.swift */,
 				394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */,
 			);
@@ -286,7 +283,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B10F331D0F203C00649F1F /* CategoryViewExtension.swift in Sources */,
 				39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */,
 				39F41E9D1E262134002C19B6 /* UITableView+Extension.swift in Sources */,
 				3922DFBB1D0A085B0009BBBA /* DateExtension.swift in Sources */,
