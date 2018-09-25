@@ -13,11 +13,9 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView! // CategoryModelのデータを表示するためのTableView
     
-    var categories: [CategoryModel] = [] // TableViewで表示する配列
+    var categories: [Category] = [] // TableViewで表示する配列
     
-    var updatingCategory: CategoryModel! // 更新するCategoryModel
-    
-    let realm = try! Realm()
+    var updatingCategory: Category! // 更新するCategoryModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,31 +34,27 @@ class CategoryViewController: UIViewController {
     
     // Addボタンの処理
     @IBAction func didSelectAdd() {
-        self.transition()
+        self.performSegue(withIdentifier: "toAddCategory", sender: self)
     }
     
     // CategoryModelを全件取得する
     func read() {
-        categories = CategoryModel.loadAll()
+        categories = Category.loadAll()
         tableView.reloadData()
     }
     
     // 該当のCategoryを削除する
     func deleteModel(index id: Int) {
+        let realm = try! Realm()
         try! realm.write {
             realm.delete(categories[id])
         }
     }
     
-    func transition() {
-        self.performSegue(withIdentifier: "toAddCategory", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddCategory" {
             let addCategory = segue.destination as! AddCategoryViewController
-            addCategory.mode = .update
-            addCategory.updatingCategory = self.updatingCategory
+            addCategory.mode = .update(category: updatingCategory)
         }
     }
 }
@@ -80,7 +74,7 @@ extension CategoryViewController: UITableViewDelegate {
         // Swipeの時の、Editボタン
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, index) in
             self.updatingCategory = self.categories[index.row] // データを保存するための変数に代入
-            self.transition() // 画面遷移
+            self.performSegue(withIdentifier: "toAddCategory", sender: self)
         }
 
         return [delete, edit]

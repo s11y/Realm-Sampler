@@ -17,9 +17,9 @@ class ViewController: UIViewController {
     
     @IBOutlet var segment: UISegmentedControl! // 全件取得か未完了ToDoかどちらを表示するか決めるためのUISegmentControl
     
-    var todos: [ToDoModel] = []
+    var todos: [ToDo] = []
     
-    var todo: ToDoModel!
+    var todo: ToDo!
     
     override func viewDidLoad() {
         
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     
     // 画面が表示される度に、Realmからデータを全件取得し、表示
     func read() {
-        todos = ToDoModel.loadUndone()
+        todos = ToDo.loadUndone()
         segment.selectedSegmentIndex = 0
         tableView.reloadData()
     }
@@ -63,9 +63,9 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAdd" {
-            guard let updatingTodo = self.todo else { return }
-            let addView = segue.destination as! AddViewController
-            addView.updatingTodo = updatingTodo
+            guard let todo = self.todo else { return }
+            let addViewController = segue.destination as! AddViewController
+            addViewController.mode = .update(todo: todo)
         }
     }
     
@@ -77,9 +77,9 @@ class ViewController: UIViewController {
     @objc func changeSegment(_ segment: UISegmentedControl) {
         switch segment.selectedSegmentIndex {
         case 0:
-            todos = ToDoModel.fetch(FetchType: .undone)
+            todos = ToDo.fetch(FetchType: .undone)
         case 1:
-            todos = ToDoModel.fetch(FetchType: .all)
+            todos = ToDo.fetch(FetchType: .all)
         default:
             break
         }
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
     func registerRealm() {
         let categories = ["家事", "勉強", "仕事"]
         for i in categories {
-            let category = CategoryModel(newCategory: i)
+            let category = Category(newCategory: i)
             category.save()
         }
     }
@@ -111,7 +111,7 @@ extension ViewController: UITableViewDelegate {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, indexPath) in
             tableView.isEditing = false
             // 該当のデータを定数に代入
-            let item = self.realm.objects(ToDoModel.self)[indexPath.row]
+            let item = self.realm.objects(ToDo.self)[indexPath.row]
             // 該当のデータをデータベースを削除する
             try! self.realm.write {
                 self.realm.delete(item
@@ -126,7 +126,7 @@ extension ViewController: UITableViewDelegate {
         // スワイプでDoneボタンを表示
         let done = UITableViewRowAction(style: .normal, title: "DONE") { (action, indexPath) in
             // 該当のデータを定数に代入
-            let item = self.realm.objects(ToDoModel.self)[indexPath.row]
+            let item = self.realm.objects(ToDo.self)[indexPath.row]
             //データベースのデータを更新する
             try! self.realm.write({
                 item.isDone = 1 // isDoneの値を1に変更
@@ -158,7 +158,7 @@ extension ViewController: UITableViewDataSource {
         let cell: TodoCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
 
         let item = todos[indexPath.row]
-        cell.duedateLabel.text = item.due_date.convertDate()
+        cell.duedateLabel.text = item.dueDate.convertDate()
         cell.todoLabel.text = item.todo
 
         return cell

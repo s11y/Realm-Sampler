@@ -7,13 +7,18 @@
 //
 
 import UIKit
-import RealmSwift
 
 class AddCategoryViewController: UIViewController { // AddCategoryViewControllerにUITextFieldDelegateを継承
+
+    enum SaveType {
+
+        case create
+        case update(category: Category)
+    }
     
     @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
     
-    var updatingCategory: CategoryModel? // 更新の際のデータ
+    var updatingCategory: Category? // 更新の際のデータ
     
     var mode: SaveType = .create // 更新か作成か
     
@@ -27,8 +32,11 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         super.viewWillAppear(animated)
         
         // 更新の際に、更新前のカテゴリーをUITextFieldに表示
-        if mode == .update {
-            categoryTextField.text = updatingCategory?.category
+        switch mode {
+        case .update(let category):
+            categoryTextField.text = category.category
+        default:
+            break
         }
     }
     
@@ -40,28 +48,17 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         // 更新か作成かで呼び出すメソッドを切り替え
         switch mode {
         case .create:
-            // categoryTextFieldの内容を使って、データを作成
-            self.create(categoryContent: text)
+            // CategoryModelのcreateメソッドを使って保存するためのデータを作成
+            let category = Category(newCategory: text)
+            // 作成したデータを保存
+            category.save()
         case .update:
             // categoryTextFieldの内容を使って、データを更新
-            self.update(categoryContent: text)
+            guard let category = updatingCategory else { return }
+            category.update(content: text)
         }
         // 画面遷移
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    func create(categoryContent text: String) {
-        // CategoryModelのcreateメソッドを使って保存するためのデータを作成
-        let category = CategoryModel(newCategory: text)
-        // 作成したデータを保存
-        category.save()
-        
-    }
-    
-    func update(categoryContent text: String) {
-        // CategoryModelのupdateメソッドを使ってデータを更新
-        guard let category = updatingCategory else { return }
-        CategoryModel.update(model: category, content: text)
     }
 }
 
