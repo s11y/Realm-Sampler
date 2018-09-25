@@ -13,9 +13,9 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView! // CategoryModelのデータを表示するためのTableView
     
-    var categories: [CategoryModel] = [] // TableViewで表示する配列
+    var categories: [Category] = [] // TableViewで表示する配列
     
-    var updatingCategory: CategoryModel! // 更新するCategoryModel
+    var updatingCategory: Category! // 更新するCategoryModel
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class CategoryViewController: UIViewController {
     
     // CategoryModelを全件取得する
     func read() {
-        categories = CategoryModel.loadAll()
+        categories = Category.loadAll()
         tableView.reloadData()
     }
     

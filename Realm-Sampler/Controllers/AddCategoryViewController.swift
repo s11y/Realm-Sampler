@@ -13,12 +13,12 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
     enum SaveType {
 
         case create
-        case update(category: CategoryModel)
+        case update(category: Category)
     }
     
     @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
     
-    var updatingCategory: CategoryModel? // 更新の際のデータ
+    var updatingCategory: Category? // 更新の際のデータ
     
     var mode: SaveType = .create // 更新か作成か
     
@@ -49,13 +49,13 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         switch mode {
         case .create:
             // CategoryModelのcreateメソッドを使って保存するためのデータを作成
-            let category = CategoryModel(newCategory: text)
+            let category = Category(newCategory: text)
             // 作成したデータを保存
             category.save()
         case .update:
             // categoryTextFieldの内容を使って、データを更新
             guard let category = updatingCategory else { return }
-            CategoryModel.update(model: category, content: text)
+            Category.update(model: category, content: text)
         }
         // 画面遷移
         self.navigationController?.popViewController(animated: true)

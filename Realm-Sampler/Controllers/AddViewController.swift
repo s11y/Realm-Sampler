@@ -46,9 +46,9 @@ class AddViewController: UIViewController {
     
     var categoryPicer: UIPickerView! // categoryTextFieldで表示するUIPickerView
     
-    var categoryArray: [CategoryModel] = [] // UIPickerViewで表示するためのカテゴリーの配列
+    var categoryArray: [Category] = [] // UIPickerViewで表示するためのカテゴリーの配列
     
-    var category: CategoryModel! // 保存するためのCategoryModelの変数
+    var category: Category! // 保存するためのCategoryModelの変数
 
     // データの作成か更新か決めるめたのenum
     var mode: SaveType = .create
@@ -64,7 +64,7 @@ class AddViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        categoryArray = CategoryModel.loadAll()
+        categoryArray = Category.loadAll()
 
         switch mode {
         case .update(let todo):
@@ -105,7 +105,7 @@ class AddViewController: UIViewController {
     }
     
     // データを保存するためのメソッド
-    func create(todo content: String, due_date date: Date, categoryId category: CategoryModel) {
+    func create(todo content: String, due_date date: Date, categoryId category: Category) {
         // それぞれのUITextFieldに入っているデータを元に、保存するデータを作成
         let todo = ToDo(content: content, category: category, dueDate: date)
         // 作成したデータを保存

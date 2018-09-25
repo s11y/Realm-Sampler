@@ -1,5 +1,5 @@
 //
-//  CategoryModel.swift
+//  Category.swift
 //  Realm-Sampler
 //
 //  Created by ShinokiRyosei on 2016/06/14.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class CategoryModel: Object {
+class Category: Object {
     
     static let realm = try! Realm()
     
@@ -28,12 +28,12 @@ class CategoryModel: Object {
     // initでインスタンスを作成
     convenience init(newCategory text: String) {
         self.init()
-        self.id = CategoryModel.lastId()
+        self.id = Category.lastId()
         self.category = text
     }
 
     // データを更新するためのメソッド
-    static func update(model: CategoryModel, content: String) {
+    static func update(model: Category, content: String) {
         // ローカルのdefault.realmとのtransactionを生成
         try! realm.write {
             // categoryに内容を挿入
@@ -44,7 +44,7 @@ class CategoryModel: Object {
     // idを取得するためのメソッド
     static func lastId() -> Int {
         // idの最大値を取得してから、+1して返す
-        if let category = realm.objects(CategoryModel.self).sorted(byKeyPath: "id", ascending: false).first {
+        if let category = realm.objects(Category.self).sorted(byKeyPath: "id", ascending: false).first {
             return category.id + 1
         }else {
             return 1
@@ -62,11 +62,11 @@ class CategoryModel: Object {
     }
     
     // データを全件取得
-    static func loadAll() -> [CategoryModel] {
+    static func loadAll() -> [Category] {
         // idでソートして全件取得
-        let categories = realm.objects(CategoryModel.self).sorted(byKeyPath: "id", ascending: true)
+        let categories = realm.objects(Category.self).sorted(byKeyPath: "id", ascending: true)
         // 取得したデータを配列に入れる
-        var array: [CategoryModel] = []
+        var array: [Category] = []
         for category in categories {
             array.append(category)
         }

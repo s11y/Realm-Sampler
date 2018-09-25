@@ -90,7 +90,7 @@ class ViewController: UIViewController {
     func registerRealm() {
         let categories = ["家事", "勉強", "仕事"]
         for i in categories {
-            let category = CategoryModel(newCategory: i)
+            let category = Category(newCategory: i)
             category.save()
         }
     }

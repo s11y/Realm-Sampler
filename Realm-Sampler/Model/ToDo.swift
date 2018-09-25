@@ -20,7 +20,7 @@ class ToDo: Object {
     
     @objc dynamic private var id: Int = 0 // データのID
     @objc dynamic var todo: String = "" //ToDoの内容
-    @objc dynamic var category: CategoryModel? //ToDoのカテゴリー
+    @objc dynamic var category: Category? //ToDoのカテゴリー
     @objc dynamic var dueDate: Date! // ToDoの期限
     @objc dynamic var isDone: Int = 0 // ToDoが完了しているか。0なら未完了、1なら完了
     
@@ -30,7 +30,7 @@ class ToDo: Object {
     }
 
     // initでインスタンスを作成
-    convenience init(content: String, category: CategoryModel, dueDate: Date) {
+    convenience init(content: String, category: Category, dueDate: Date) {
         self.init()
         self.todo = content
         self.category = category
@@ -41,7 +41,7 @@ class ToDo: Object {
 
     
     // Todoの内容を変更し、更新するためのメソッド
-    static func update(model: ToDo,content: String, category: CategoryModel, dueDate: Date) {
+    static func update(model: ToDo,content: String, category: Category, dueDate: Date) {
         // ローカルのdefault.realmとのtransactionを生成
         try! realm.write{
             // それぞれのカラムにデータを入れる
