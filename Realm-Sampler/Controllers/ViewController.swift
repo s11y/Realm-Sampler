@@ -158,7 +158,7 @@ extension ViewController: UITableViewDataSource {
         let cell: TodoCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
 
         let item = todos[indexPath.row]
-        cell.duedateLabel.text = item.due_date.convertDate()
+        cell.duedateLabel.text = item.dueDate.convertDate()
         cell.todoLabel.text = item.todo
 
         return cell

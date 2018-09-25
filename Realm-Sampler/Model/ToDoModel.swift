@@ -21,7 +21,7 @@ class ToDoModel: Object {
     @objc dynamic private var id: Int = 0 // データのID
     @objc dynamic var todo: String = "" //ToDoの内容
     @objc dynamic var category: CategoryModel? //ToDoのカテゴリー
-    @objc dynamic var due_date: Date! // ToDoの期限
+    @objc dynamic var dueDate: Date! // ToDoの期限
     @objc dynamic var isDone: Int = 0 // ToDoが完了しているか。0なら未完了、1なら完了
     
     // idをプライマリーキーに設定
@@ -34,7 +34,7 @@ class ToDoModel: Object {
         self.init()
         self.todo = content
         self.category = category
-        self.due_date = dueDate
+        self.dueDate = dueDate
         self.isDone = 0
         self.id = ToDoModel.lastId()
     }
@@ -47,7 +47,7 @@ class ToDoModel: Object {
             // それぞれのカラムにデータを入れる
             model.todo = content
             model.category = category
-            model.due_date = dueDate
+            model.dueDate = dueDate
             model.isDone = 0
         }
     }
