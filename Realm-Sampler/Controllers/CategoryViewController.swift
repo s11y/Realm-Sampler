@@ -30,18 +30,13 @@ class CategoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.read()
+        categories = Category.loadAll()
+        tableView.reloadData()
     }
     
     // Addボタンの処理
     @IBAction func didSelectAdd() {
         self.performSegue(withIdentifier: "toAddCategory", sender: self)
-    }
-    
-    // CategoryModelを全件取得する
-    func read() {
-        categories = Category.loadAll()
-        tableView.reloadData()
     }
     
     // 該当のCategoryを削除する
@@ -89,8 +84,6 @@ extension CategoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
-
 }
 
 

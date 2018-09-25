@@ -92,7 +92,7 @@ class AddViewController: UIViewController {
             // SaveTypeで保存か更新かを切り替え
             switch mode {
             case .create:
-                self.create(todo: text, due_date: date, categoryId: self.category) // 保存するためのメソッドにデータを渡す
+                self.create(todo: text, dueDate: date, categoryId: self.category) // 保存するためのメソッドにデータを渡す
             case .update(let todo):
                 todo.update(content: text, category: category, dueDate: date)
             }
@@ -105,7 +105,7 @@ class AddViewController: UIViewController {
     }
     
     // データを保存するためのメソッド
-    func create(todo content: String, due_date date: Date, categoryId category: Category) {
+    func create(todo content: String, dueDate date: Date, categoryId category: Category) {
         // それぞれのUITextFieldに入っているデータを元に、保存するデータを作成
         let todo = ToDo(content: content, category: category, dueDate: date)
         // 作成したデータを保存
