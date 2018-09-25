@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3922DFBB1D0A085B0009BBBA /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3922DFBA1D0A085B0009BBBA /* DateExtension.swift */; };
-		394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBC1D0F087700752948 /* AddViewExtension.swift */; };
 		394F3DBF1D0F0BE800752948 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */; };
 		394F3DC11D0F101600752948 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394F3DC01D0F101600752948 /* CategoryModel.swift */; };
 		3988875E1D05B8A300E91C06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3988875D1D05B8A300E91C06 /* AppDelegate.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		3922DFBA1D0A085B0009BBBA /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		394F3DBC1D0F087700752948 /* AddViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewExtension.swift; sourceTree = "<group>"; };
 		394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		394F3DC01D0F101600752948 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		3988875A1D05B8A200E91C06 /* Realm-Sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Realm-Sampler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				39F41E9C1E262134002C19B6 /* UITableView+Extension.swift */,
-				394F3DBC1D0F087700752948 /* AddViewExtension.swift */,
 				3922DFBA1D0A085B0009BBBA /* DateExtension.swift */,
 				394F3DBE1D0F0BE800752948 /* ViewControllerExtension.swift */,
 			);
@@ -286,7 +283,6 @@
 				39B10F311D0F1F8000649F1F /* CategoryViewController.swift in Sources */,
 				39F41E9D1E262134002C19B6 /* UITableView+Extension.swift in Sources */,
 				3922DFBB1D0A085B0009BBBA /* DateExtension.swift in Sources */,
-				394F3DBD1D0F087700752948 /* AddViewExtension.swift in Sources */,
 				398887601D05B8A300E91C06 /* ViewController.swift in Sources */,
 				39E618E31D05D398009ECBC3 /* AddViewController.swift in Sources */,
 				39E6705F1D0FECB6000521EB /* AddCategoryViewController.swift in Sources */,
