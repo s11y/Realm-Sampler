@@ -10,8 +10,16 @@ import UIKit
 import RealmSwift
 
 class CategoryViewController: UIViewController {
-    
-    @IBOutlet var tableView: UITableView! // CategoryModelのデータを表示するためのTableView
+
+    // CategoryModelのデータを表示するためのTableView
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+
+            tableView.register(CategoryCell.self)
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
     
     var categories: [Category] = [] // TableViewで表示する配列
     
@@ -19,11 +27,6 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(CategoryCell.self)
-        
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
