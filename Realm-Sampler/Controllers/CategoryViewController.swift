@@ -23,8 +23,6 @@ class CategoryViewController: UIViewController {
     
     var categories: [Category] = [] // TableViewで表示する配列
     
-    var updatingCategory: Category! // 更新するCategoryModel
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -56,8 +54,9 @@ class CategoryViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddCategory" {
+            guard let category = sender as? Category else { return }
             let addCategory = segue.destination as! AddCategoryViewController
-            addCategory.mode = .update(category: updatingCategory)
+            addCategory.mode = .update(category: category)
         }
     }
 }
@@ -66,18 +65,18 @@ extension CategoryViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         // Swipeの時の、Deleteボタン
-        let delete = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) in
-            self.categories.remove(at: indexPath.row) // 配列から削除
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { [weak self] action, indexPath in
+            self?.categories.remove(at: indexPath.row) // 配列から削除
             tableView.deleteRows(at: [indexPath as IndexPath], with: .fade) // TableViewから削除
-            self.deleteModel(index: indexPath.row) // 該当のデータをデータベースから削除
+            self?.deleteModel(index: indexPath.row) // 該当のデータをデータベースから削除
         }
 
         delete.backgroundColor = UIColor.red
 
         // Swipeの時の、Editボタン
-        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, index) in
-            self.updatingCategory = self.categories[index.row] // データを保存するための変数に代入
-            self.performSegue(withIdentifier: "toAddCategory", sender: self)
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { [weak self] action, indexPath in
+            guard let `self` = self else { return }
+            self.performSegue(withIdentifier: "toAddCategory", sender: self.categories[indexPath.row])
         }
 
         return [delete, edit]
