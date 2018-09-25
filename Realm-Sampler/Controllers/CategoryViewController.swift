@@ -34,7 +34,7 @@ class CategoryViewController: UIViewController {
     
     // Addボタンの処理
     @IBAction func didSelectAdd() {
-        self.transition()
+        self.performSegue(withIdentifier: "toAddCategory", sender: self)
     }
     
     // CategoryModelを全件取得する
@@ -49,10 +49,6 @@ class CategoryViewController: UIViewController {
         try! realm.write {
             realm.delete(categories[id])
         }
-    }
-    
-    func transition() {
-        self.performSegue(withIdentifier: "toAddCategory", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,7 +74,7 @@ extension CategoryViewController: UITableViewDelegate {
         // Swipeの時の、Editボタン
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, index) in
             self.updatingCategory = self.categories[index.row] // データを保存するための変数に代入
-            self.transition() // 画面遷移
+            self.performSegue(withIdentifier: "toAddCategory", sender: self)
         }
 
         return [delete, edit]
