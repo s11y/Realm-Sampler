@@ -94,7 +94,7 @@ class AddViewController: UIViewController {
             case .create:
                 self.create(todo: text, due_date: date, categoryId: self.category) // 保存するためのメソッドにデータを渡す
             case .update(let todo):
-                ToDo.update(model: todo, content: text, category: category, dueDate: date)
+                todo.update(content: text, category: category, dueDate: date)
             }
             self.transition()
         }
