@@ -55,7 +55,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         case .update:
             // categoryTextFieldの内容を使って、データを更新
             guard let category = updatingCategory else { return }
-            Category.update(model: category, content: text)
+            category.update(content: text)
         }
         // 画面遷移
         self.navigationController?.popViewController(animated: true)

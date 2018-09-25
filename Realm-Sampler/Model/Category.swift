@@ -12,8 +12,6 @@ import RealmSwift
 
 class Category: Object {
     
-    static let realm = try! Realm()
-    
     @objc dynamic private var id: Int = 0 // CategoryModelのid
     @objc dynamic var category: String = "" // Categoryの内容
 
@@ -33,16 +31,18 @@ class Category: Object {
     }
 
     // データを更新するためのメソッド
-    static func update(model: Category, content: String) {
+    func update(content: String) {
+        let realm = try! Realm()
         // ローカルのdefault.realmとのtransactionを生成
         try! realm.write {
             // categoryに内容を挿入
-            model.category = content
+            self.category = content
         }
     }
     
     // idを取得するためのメソッド
     static func lastId() -> Int {
+        let realm = try! Realm()
         // idの最大値を取得してから、+1して返す
         if let category = realm.objects(Category.self).sorted(byKeyPath: "id", ascending: false).first {
             return category.id + 1
@@ -63,6 +63,7 @@ class Category: Object {
     
     // データを全件取得
     static func loadAll() -> [Category] {
+        let realm = try! Realm()
         // idでソートして全件取得
         let categories = realm.objects(Category.self).sorted(byKeyPath: "id", ascending: true)
         // 取得したデータを配列に入れる
