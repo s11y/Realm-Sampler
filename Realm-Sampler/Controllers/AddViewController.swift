@@ -17,8 +17,6 @@ class AddViewController: UIViewController {
         case update(todo: ToDoModel)
     }
 
-    let realm = try! Realm()
-
     // ToDoの内容のUITextField
     @IBOutlet var textField: UITextField! {
 

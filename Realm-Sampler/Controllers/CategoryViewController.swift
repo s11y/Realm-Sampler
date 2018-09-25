@@ -17,8 +17,6 @@ class CategoryViewController: UIViewController {
     
     var updatingCategory: CategoryModel! // 更新するCategoryModel
     
-    let realm = try! Realm()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +45,7 @@ class CategoryViewController: UIViewController {
     
     // 該当のCategoryを削除する
     func deleteModel(index id: Int) {
+        let realm = try! Realm()
         try! realm.write {
             realm.delete(categories[id])
         }

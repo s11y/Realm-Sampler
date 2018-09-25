@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class AddCategoryViewController: UIViewController { // AddCategoryViewControllerにUITextFieldDelegateを継承
 
