@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class AddViewController: UIViewController {
 
@@ -101,13 +100,8 @@ class AddViewController: UIViewController {
         }
     }
     
-    @objc func changedDueDate() {
-        changeLabelDate(date: datePicker.date)
-    }
-    
-    // 該当の日付をdateTextFieldに表示する
-    func changeLabelDate(date: Date) {
-        dateTextField.text = date.convertDate()
+    @objc func changedDueDate(_ sender: UIDatePicker) {
+        dateTextField.text = sender.date.convertDate()
     }
     
     // データを保存するためのメソッド
@@ -133,7 +127,7 @@ extension AddViewController: UIPickerViewDelegate  {
     // UIDatePickerをdateTextFieldを追加
     func setDatePicker() {
         datePicker = UIDatePicker()
-        datePicker.addTarget(self, action: #selector(self.changedDueDate), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(self.changedDueDate(_:)), for: .valueChanged)
         datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
 
         dateTextField.inputView = datePicker
