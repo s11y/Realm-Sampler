@@ -13,7 +13,7 @@ class AddViewController: UIViewController {
     // データを保存するのか更新するのか
     enum SaveType {
         case create
-        case update(todo: ToDoModel)
+        case update(todo: ToDo)
     }
 
     // ToDoの内容のUITextField
@@ -94,7 +94,7 @@ class AddViewController: UIViewController {
             case .create:
                 self.create(todo: text, due_date: date, categoryId: self.category) // 保存するためのメソッドにデータを渡す
             case .update(let todo):
-                ToDoModel.update(model: todo, content: text, category: category, dueDate: date)
+                ToDo.update(model: todo, content: text, category: category, dueDate: date)
             }
             self.transition()
         }
@@ -107,7 +107,7 @@ class AddViewController: UIViewController {
     // データを保存するためのメソッド
     func create(todo content: String, due_date date: Date, categoryId category: CategoryModel) {
         // それぞれのUITextFieldに入っているデータを元に、保存するデータを作成
-        let todo = ToDoModel(content: content, category: category, dueDate: date)
+        let todo = ToDo(content: content, category: category, dueDate: date)
         // 作成したデータを保存
         todo.save()
     }

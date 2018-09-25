@@ -18,7 +18,7 @@ class CategoryModel: Object {
     @objc dynamic var category: String = "" // Categoryの内容
 
     
-    let todoModel = List<ToDoModel>()
+    let todoModel = List<ToDo>()
     
     // idをプライマリーキーに設定
     override static func primaryKey() -> String {
