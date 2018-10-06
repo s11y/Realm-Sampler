@@ -15,22 +15,28 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
         case create
         case update(category: Category)
     }
-    
-    @IBOutlet var categoryTextField: UITextField! // カテゴリーの内容を記入するUITextField
-    
+
+    // カテゴリーの内容を記入するUITextField
+    @IBOutlet var categoryTextField: UITextField! {
+
+      didSet {
+        categoryTextField.delegate = self
+      }
+    }
+
+
     var updatingCategory: Category? // 更新の際のデータ
-    
+
     var mode: SaveType = .create // 更新か作成か
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        categoryTextField.delegate = self
+
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // 更新の際に、更新前のカテゴリーをUITextFieldに表示
         switch mode {
         case .update(let category):
@@ -39,12 +45,12 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
             break
         }
     }
-    
+
     // Saveボタンの処理
     @IBAction func didSelectSave() {
         // categoryTextFieldに文字が記入されているかチェック
         guard let text = categoryTextField.text else { return }
-        
+
         // 更新か作成かで呼び出すメソッドを切り替え
         switch mode {
         case .create:
@@ -64,7 +70,7 @@ class AddCategoryViewController: UIViewController { // AddCategoryViewController
 
 
 extension AddCategoryViewController: UITextFieldDelegate {
-    
+
     // Returnキーでキーボードを下げる
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
